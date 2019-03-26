@@ -1,0 +1,41 @@
+.menu
+{
+    margin-top: 20%;
+    margin-left: 42%;
+}
+
+ul ul 
+{
+    display: none;
+    position: absolute;
+    left: 144px;
+    top: -1px;
+    margin:0px;
+    padding: 0px;
+    border: 1px solid rgb(130, 20, 139);
+}
+li
+{
+    list-style-type: none;
+    position: relative;
+    width: 140px;
+    padding: 2px;
+    margin: 0px;
+    background-color: rgb(29, 178, 216);
+}
+li:hover 
+{
+    background-color: rgb(224, 224, 34);
+}
+
+li:hover ul.niveau2, li li:hover ul.niveau3 
+{
+    display: block
+}
+li.plus 
+{
+    background-position:right;
+    background-image: url(illustrations/fdroite.gif);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid rgb(7, 7, 7);
+}

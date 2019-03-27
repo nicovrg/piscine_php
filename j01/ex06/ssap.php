@@ -1,35 +1,19 @@
 #!/usr/bin/php
 <?php
-function ft_split($str)
-{
-    $arr_tab = array();
-    $arr_res = array();
-	if ($str)
-	{
-		$arr_tab = preg_split('/\s+/', $str);
-		$arr_res = array_filter($arr_tab, 'strlen');
-        sort ($arr_res);
-		return ($arr_res);
-	}
-}
 if ($argc > 1)
 {
-    $i = 1;
-    $arr_res = array();
-    $arr_tmp = array();
-    while ($i < $argc)
+    $j = 0;
+    foreach($argv as $i => $val)
     {
-        $arr_tmp = ft_split($argv[$i]);
-        $arr_res = array_merge($arr_res, $arr_tmp);
-        $i++;
+        if ($i != 0)
+        {
+            $tab = explode(" ", $val);
+            $tab = array_filter($tab, 'strlen');
+            $tab_tmp = $tab;
+        }
     }
-    $i = 0;
-    sort ($arr_res);
-    while ($i < count($arr_res))
-    {
-        print ($arr_res[$i]);
-        print ("\n");
-        $i++;
-    }
+    sort($tab_tmp);
+    foreach ($tab_tmp as $val)
+        print($val)."\n";
 }
 ?>

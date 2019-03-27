@@ -12,6 +12,11 @@ function ft_split($str)
 }
 if ($argc == 2)
 {
+	if ($argv[1] === "0")
+	{
+		print ("0\n");
+		exit (0);	
+	}
 	$array = ft_split($argv[1]);
 	$j = count($array);
 	$i = 1;
@@ -22,6 +27,7 @@ if ($argc == 2)
 		$i++;
 	}
 	$str = $str.$array[$i];
+	if (($str))
+		print ($str."\n");
 }
-print ($str."\n");
 ?>

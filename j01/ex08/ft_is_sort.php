@@ -1,16 +1,15 @@
 #!/usr/bin/php
 <?PHP
-
 function ft_is_sort ($array)
 {
-
+    $array_cpy = $array;
+    sort ($array_cpy);
+    while ($i < count($array))
+    {
+        if ($array[$i] != $array_cpy[$i])
+            return (0);
+        $i++;
+    }
+    return (1);
 }
-
-$tab =array("!/@#;^", "42", "Hello World", "salut", "zZzZzZz");
-
-$tab[] = "Et qu’est-ce qu’on fait maintenant ?";
-if (ft_is_sort($tab))
-    echo"Le tableau est trie\n";
-else
-    echo"Le tableau n’est pas trie\n";
 ?>

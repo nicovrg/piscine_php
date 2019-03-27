@@ -6,7 +6,7 @@ function ft_split($str)
 	{
 		$arr_tab = preg_split('/\s+/', $str);
 		$arr_res = array_filter($arr_tab, 'strlen');
-		sort ($arr_tab);
+		sort ($arr_res);
 		return ($arr_res);
 	}
 }

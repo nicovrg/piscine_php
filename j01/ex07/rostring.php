@@ -17,9 +17,7 @@ if ($argc > 1)
     $word = array_shift ($arr_res);
     array_push ($arr_res, $word);
     foreach ($arr_res as $value)
-    {
         $str = $str." ".$value;
-    }
     $tmp = (count(str) - 1);
     $str = substr($str, 1);
     print ($str);

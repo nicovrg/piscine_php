@@ -1,9 +1,27 @@
 #!/usr/bin/php
 <?php
-if (argc == 2)
+function ft_split($str)
 {
-	$word = trim($argv[1]);
-
+	if ($str)
+	{
+		$arr_tab = preg_split('/\s+/', $str);
+		$arr_res = array_filter($arr_tab, 'strlen');
+		sort ($arr_tab);
+		return ($arr_res);
+	}
 }
-#consigne pas claires - supprimer uniquement les espaces ou aussi les caractères invisibles
+if ($argc == 2)
+{
+	$array = ft_split($argv[1]);
+	$j = count($array);
+	$i = 1;
+	$str = $str.$array[0];
+	while ($i < $j)
+	{
+		$str = $str." ".$array[$i];
+		$i++;
+	}
+	$str = $str.$array[$i];
+}
+print ($str."\n");
 ?>

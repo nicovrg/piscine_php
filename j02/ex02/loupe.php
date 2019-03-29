@@ -20,7 +20,6 @@ function main ($argv)
         print($line);
 	}
 	fclose($file);
-
 }
 
 if ($argc == 2)

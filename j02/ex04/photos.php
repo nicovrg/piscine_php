@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-function getimg($url) {         
+function get_img($url) {         
     $headers[] = 'Accept: image/gif, image/x-bitmap, image/jpeg, image/pjpeg';              
     $headers[] = 'Connection: Keep-Alive';         
     $headers[] = 'Content-type: application/x-www-form-urlencoded;charset=UTF-8';         
@@ -41,7 +41,7 @@ foreach ($match[0] as $key) {
 	$imgurl = $key;
 	$imagename= basename($imgurl);
 	if(file_exists('./$val/'.$imagename)){continue;} 
-	$image = getimg($imgurl); 
+	$image = get_img($imgurl); 
 	file_put_contents($val.'/'.$imagename,$image);
 }
 ?>

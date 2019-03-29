@@ -65,3 +65,7 @@ $$var = "variable";
 echo ("$magic\n");
 #cela va ecrire  variable
 ```
+
+### Cockie
+
+[amazing video to explain what's a cookie](https://www.youtube.com/watch?v=yED9q_chp8c)

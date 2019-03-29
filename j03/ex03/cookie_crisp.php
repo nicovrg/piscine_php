@@ -1,5 +1,4 @@
 #!/usr/bin/php
 <?php
-foreach ($_GET as $first => $second)
-    echo"$first : $second"."\n";
+    setcookie ('lang', 'fr', time() + 3600 * 24 * 365, null, null, false, true)
 ?>

@@ -30,13 +30,14 @@
 
 - [php openclassrooms](https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql)
 
-- attention a bien utiliser == ou !== pour verifier le type de variable comparé!
 
 - launch a php server
 
 1. php -S localhost:port_number
 2. server was launch in /Users/nivergne/42_Nico/42_gitlab/ongoing/piscine_php/j03/
 3. curl 'localhost:8100/ex02/print_get.php?login=nivergne&login=lalala'
+
+- carefull: === ou !== pis highly recommended because it had a check on the variable type!
 
 ### Variables variables 
 

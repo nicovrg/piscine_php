@@ -1,0 +1,4 @@
+cd /Users/nivergne/Documents/mamp/mysql/bin
+./mysql -uroot -p
+
+

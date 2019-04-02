@@ -1,1 +1,1 @@
-CREATE DATABASE db_nivergne ;
+CREATE DATABASE IF NOT EXISTS db_nivergne;

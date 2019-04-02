@@ -1,4 +1,4 @@
-cd /Users/nivergne/Documents/mamp/mysql/bin
+/Users/nivergne/Documents/mamp/mysql/bin or /Applications/mampstack-5.6.40-1/mysql/bin
 ./mysql -uroot -p
-
+id: root pwd: 123456
 

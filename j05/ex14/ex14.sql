@@ -1,1 +1,4 @@
-SELECT `floor_number` as `floor`, `nb_seats` as `seats` FROM `cinema` ORDER by `floor_number` ASC, `nb_seats` DESC;
+SELECT `floor_number` AS `floor`, SUM(`nb_seats`) AS `seats`
+FROM cinema
+GROUP BY `floor_number`
+ORDER BY `seats` DESC;

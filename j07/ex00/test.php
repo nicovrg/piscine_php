@@ -12,7 +12,7 @@ class Lannister {
 	}
 }
 
-include('Tyrion.class.php');
+include('../../ex00/Tyrion.class.php');
 
 $tyrion = new Tyrion();
 

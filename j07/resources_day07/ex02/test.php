@@ -1,6 +1,6 @@
 <?php
 
-include('Targaryen.class.php');
+include('../../ex02/Targaryen.class.php');
 
 class Viserys extends Targaryen {
 }

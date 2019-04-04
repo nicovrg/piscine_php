@@ -1,6 +1,6 @@
 <?php
 
-include('Greyjoy.class.php');
+include('../../ex01/Greyjoy.class.php');
 
 class Euron extends Greyjoy {
 	public function announceMotto() {

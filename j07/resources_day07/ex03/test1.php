@@ -1,6 +1,6 @@
 <?php
 
-include('House.class.php');
+include('/Users/nivergne/42_Nico/42_gitlab/ongoing/piscine_php/j07/ex03');
 
 class HouseStark extends House {
 	public function getHouseName() {

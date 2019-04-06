@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Titre de la page</title>
+        <style>
+        #calc
+        {
+			margin-top : 21%;
+            margin-left: auto;
+			margin-right: auto;
+            width: 200px;
+			height: 200px;
+        }
+        </style>
+        <script>
+            function add (first, second)
+            {
+                var res = first + second;
+                alert(res);
+                console.log(res);
+            }
+            function sub (first, second)
+            {
+                var res = first - second;
+                alert(res);
+                console.log(res);
+            }
+            function mul (first, second)
+            {
+                var res = first * second;
+                alert(res);
+                console.log(res);
+            }
+            function div (first, second)
+            {
+                if (second == 0)
+                {
+                    alert("It’s over 9000!");
+                    console.log("It’s over 9000!");
+                    return (0);
+                }
+                var res = first / second;
+                alert(res);
+                console.log(res);
+            }
+            function mod (first, second)
+            {
+                if (second == 0)
+                {
+                    alert("It’s over 9000!");
+                    console.log("It’s over 9000!");
+                    return (0);                
+                }
+                var res = first % second;
+                alert(res);
+                console.log(res);
+            }
+            function calc ()
+            {
+                var first = parseInt(document.getElementById("first").value);
+                var operand = document.getElementById("operand").value;
+                var second = parseInt(document.getElementById("second").value);
+                if (first >= 0 && second >= 0)
+                {
+                    if (operand == "+")
+                        add (first, second);
+                    if (operand == "-")
+                        sub (first, second);
+                    if (operand == "*")
+                        mul (first, second);
+                    if (operand == "/")
+                        div (first, second);
+                    if (operand == "%")
+                        mod (first, second);   
+                }
+                else
+                {
+                    alert("Error:(");
+                }
+            }
+        </script>        
+    </head>
+    <body>
+          <div id="calc">
+                <input type="text" id="first">
+                <select name="" id="operand">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+                <input type="text" id="second">
+                <input type="submit" value="Try me!" onclick='calc();'>
+          </div>
+    </body>
+</html>

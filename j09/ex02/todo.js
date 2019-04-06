@@ -1,27 +1,53 @@
-while (document.cookie)
+window.onload = function ()
 {
-   
+	take_cookies();
+};
+
+function create_cookie ()
+{
+	var value = document.getElementById("ft_list").innerHTML;
+	value = value.replace(/\s+<div/g, "<div");
+	document.cookie = "giveCookies=" + value + ";";
 }
 
-function add () 
+function take_cookies ()
 {
-    var res = prompt("be you, be ff ---> proud of you ... because you can be ... do ... what we want ... to do");
-    if (res != "" && res != null)
-    {
-        var node = document.createElement("div");
-        var textnode = document.createTextNode(res);
-        node.appendChild(textnode);
-        node.addEventListener("click", remove);
-        document.getElementById("ft_list").prepend(node);
-        document.cookie = "todo =" + textnode + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-    }
-}
-function remove ()
-{
-    if (confirm("Voulez-vous supprimer la todo ?"))
-    {
-        // document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        this.parentElement.removeChild(this);
-    }
-}        
+	var table = String(document.cookie).split(';');
 
+	for (var i = 0; i < table.length; i++)
+	{
+		var sub_table = table[i].split('=');
+
+		if (sub_table[0].indexOf("giveCookies") !== -1)
+		{
+			document.getElementById("ft_list").innerHTML += sub_table[1];
+			for (var i = 0; i < document.getElementById('ft_list').getElementsByTagName('div').length; i++)
+				document.getElementById("ft_list").getElementsByTagName('div')[i].addEventListener("click", list_click);
+		}
+	}
+}
+
+function list_click ()
+{
+	var ret = confirm("Do you want to delete this todo?");
+	if (ret)
+	{
+		var ft_list = document.getElementById("ft_list");
+		ft_list.removeChild(this);
+		create_cookie();
+	}
+}
+
+function prompt_new ()
+{
+	var new_todo = prompt("be you, be ff ---> proud of you ... because you can be ... do ... what we want ... to do");
+
+	if (new_todo != null && new_todo != "")
+	{
+		var new_div = document.createElement("div");
+		new_div.appendChild(document.createTextNode(new_todo));
+		new_div.addEventListener("click", list_click);
+		document.getElementById("ft_list").prepend(new_div);
+		create_cookie();
+	}
+}

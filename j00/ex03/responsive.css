@@ -1,77 +1,128 @@
-.u
-{
-    margin: 0;
-    padding-top: 0;
-    font-size: 10px;
-    text-align: right;
-    vertical-align: top;
-}
-.m
-{
-    padding: 0;
-    font-size: 1.5em;
-    font-family: monospace;
-    text-align: center;
-}
-.d
-{
-    margin: 0;
-    padding-bottom: 0;
-    font-size: 10px;
-    text-align: left;
-    vertical-align: bottom;
-}
-.invisible
-{
-    border: 0px;
-}
-.al
-{
-    border:1px solid black;
-    background-color: rgba(211, 210, 181, 0.815);
-}
-.al_dir
-{
-    border:1px solid black;
-    background-color: rgba(155, 84, 37, 0.795);
-}
-.met_poor
-{
-    border:1px solid black;
-    background-color: rgba(117, 117, 117, 0.795);
-}
-.met_trans
-{
-    border:1px solid black;
-    background-color: rgba(172, 112, 23, 0.795);
-}
-.met
-{
-    border:1px solid black;
-    background-color: rgba(81, 134, 56, 0.795);
-}
-.not_met
-{
-    border:1px solid black;
-    background-color: rgba(132, 196, 103, 0.795);
-}
-.hallo
-{
-    border:1px solid black;
-    background-color: rgba(68, 77, 158, 0.795);
-}
-.rar_gaz
-{
-    border:1px solid black;
-    background-color: rgba(226, 174, 32, 0.795);
-}
-.lanthanides
-{
-    border:1px solid black;
-    background-color: rgba(226, 174, 32, 0.795);
-}
-.actinides
-{
-    border:1px solid black;
-    background-color: rgba(226, 174, 32, 0.795);
-}
+<style>
+    body
+    {
+        font-family: monospace;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #f0eeee;
+        color: black;
+    }
+    #mandeleiv-table
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    #mandeleiv-table table 
+    {
+		width: 80%;
+        height: 80%;
+    	margin: 0;
+    }
+    .th
+    {
+        width: 3%;
+        height: 6%;
+        padding: 0 0.3%;
+        font-size: 0.6vw;
+    }
+	.th p 
+    {
+        margin: 0;
+    }
+	.th .u 
+    {
+    	text-align: right;
+    }
+    .th .m 
+    {
+    	text-align: center;
+    	margin: 25% 0;
+    	font-size: 0.9vw;
+	}
+	.th .d 
+    {
+        text-align: left;
+    }
+    .u
+    {
+        margin: 0;
+        padding-top: 0;
+        font-size: 1vh;
+        text-align: right;
+        vertical-align: top;
+    }
+    .m
+    {
+        padding: 0;
+        font-size: 1vh;
+        font-family: monospace;
+        text-align: center;
+    }
+    .d
+    {
+        margin: 0;
+        padding-bottom: 0;
+        font-size: 1vh;
+        text-align: left;
+        vertical-align: bottom;
+    }
+    .invisible
+    {
+        border: 0px;
+    }
+    .al
+    {
+        border:1px solid black;
+        background-color: rgba(211, 210, 181, 0.815);
+    }
+    .al_dir
+    {
+        border:1px solid black;
+        background-color: rgba(155, 84, 37, 0.795);
+    }
+    .met_poor
+    {
+        border:1px solid black;
+        background-color: rgba(117, 117, 117, 0.795);
+    }
+    .met_trans
+    {
+        border:1px solid black;
+        background-color: rgba(172, 112, 23, 0.795);
+    }
+    .met
+    {
+        border:1px solid black;
+        background-color: rgba(81, 134, 56, 0.795);
+    }
+    .not_met
+    {
+        border:1px solid black;
+        background-color: rgba(132, 196, 103, 0.795);
+    }
+    .hallo
+    {
+        border:1px solid black;
+        background-color: rgba(68, 77, 158, 0.795);
+    }
+    .rar_gaz
+    {
+        border:1px solid black;
+        background-color: rgba(226, 174, 32, 0.795);
+    }
+    .lanthanides
+    {
+        border:1px solid black;
+        background-color: rgba(226, 174, 32, 0.795);
+    }
+    .actinides
+    {
+        border:1px solid black;
+        background-color: rgba(226, 174, 32, 0.795);
+    }
+</style>

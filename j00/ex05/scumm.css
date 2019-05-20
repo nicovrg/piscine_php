@@ -110,3 +110,73 @@
     background-color: rgb(114, 218, 114); 
     box-shadow: 10px 10px 5px black;
 }
+
+.green_boxx
+{
+    position: absolute;
+    left: 19%;
+    bottom: 16%;
+    width: 550px;
+    height: 200px;
+	font-size: 30px;
+	font-family: monospace;
+    padding-left: 1%;
+    border-radius: 10px;
+    background-color: rgb(114, 218, 114); 
+    box-shadow: 10px 10px 5px black;
+}
+
+.one
+{
+	display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+	margin-bottom: 1%;
+	width: 81vh;
+	height: 57vh;
+}
+
+.two
+{
+	display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+	margin-bottom: 1%;
+	width: 81vh;
+	height: 57vh;
+}
+
+.three
+{
+	display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+	margin-bottom: 1%;
+	width: 81vh;
+	height: 57vh;
+}
+
+.four
+{
+	display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+	margin-bottom: 1%;
+	width: 81vh;
+	height: 57vh;
+}
+
+.five
+{
+	display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+	margin-bottom: 1%;
+	width: 81vh;
+	height: 57vh;
+}

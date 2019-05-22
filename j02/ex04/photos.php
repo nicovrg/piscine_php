@@ -32,6 +32,8 @@ while ($i != $f) {
 		$match[0][$f] = $vl;
 	$f++;
 }
+print $val."\n";
+print $argv[1]."\n";
 $val = $argv[1];
 if (substr($argv[1], 0, 7) == "http://")
 	$val = substr($argv[1], 7);

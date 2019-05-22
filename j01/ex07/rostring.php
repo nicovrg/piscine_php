@@ -20,6 +20,6 @@ if ($argc > 1)
         $str = $str." ".$value;
     $tmp = (count(str) - 1);
     $str = substr($str, 1);
-    print ($str);
+    print ($str."\n");
 }
 ?>

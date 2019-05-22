@@ -1,46 +1,35 @@
 #!/usr/bin/php
-<?php
-function ft_split($str)
+<?PHP
+function sscp_sort($a, $b)
 {
-	if ($str)
-	{
-		$tab = preg_split('/\s+/', $str);
-		$res = array_filter($tab, 'strlen');
-		return ($res);
-	}
+    $lower_a = strtolower($a);
+    $lower_b = strtolower($b);
+    if ($lower_a === $lower_b)
+        return (0);
+    $order = "abcdefghijklmnopqrstuvwxyz0123456789 !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+	for ($i = 0; $lower_a[$i] === $lower_b[$i]; $i++);
+    for ($j = 0; $lower_a[$i] !== $order[$j]; $j++);
+    for ($k = 0; $lower_b[$i] !== $order[$k]; $k++);
+    if ($j < $k)
+        return (-1);
+    return (1);
 }
-if ($argc == 1)
-    return ;
-foreach ($argv as $key =>$value) 
+
+if ($argc >= 2)
 {
-    if ($value == NULL)
-        unset($argv[$key]);
+    $final = array();
+    foreach ($argv as $key => $param)
+    {
+		if ($key != 0)
+        {
+            $str = trim($param);
+            $tab = explode(' ', $str);
+            $tab = array_filter($tab);
+            $final = array_merge($final, $tab);
+        }
+    }
+    usort($final, "sscp_sort");
+    foreach ($final as $word)
+        echo ($word."\n");
 }
-$arr_all = array();
-$arr_tmp = array();
-foreach ($argv as $value)
-{
-    $arr_tmp = ft_split ($value);
-    $arr_all = array_merge($arr_all, $arr_tmp);
-}
-array_shift($arr_all);
-$arr_char = array();
-$arr_numb = array();
-$arr_else = array();
-$arr_resu = array();
-foreach ($arr_all as $val)
-{
-    if (($val[0] >= 'a' && $val[0] <= 'z') || ($val[0] >= 'A' && $val[0] <= 'Z'))
-        array_push($arr_char, $val);
-    else if ($val[0] >= '0' && $val[0] <= '1')
-        array_push($arr_numb, $val);
-    else
-        array_push($arr_else, $val);
-}
-natcasesort($arr_char);
-$arr_resu = array_merge($arr_resu, $arr_char);
-$arr_resu = array_merge($arr_resu, $arr_numb);
-$arr_resu = array_merge($arr_resu, $arr_else);
-foreach ($arr_resu as $value)
-    print ($value)."\n";
 ?>

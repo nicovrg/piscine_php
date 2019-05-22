@@ -128,7 +128,6 @@ function 	get_number_grade($unique_students, $all_students)
 	return ($number_grade);
 }
 
-
 // function 	get_number_grade($unique_students, $all_students)
 // {
 // 	$number_grade = array();

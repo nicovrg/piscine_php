@@ -108,25 +108,50 @@ function 	get_sum_grade_unique_student($all_students, $unique_students, $all_gra
 
 function 	get_number_grade($unique_students, $all_students)
 {
-	$i = 0;
-	$k = 0;
+	$number_grade = array();
 	foreach ($unique_students as $student)
 	{
+		$i = 0;
+		$k = 0;
 		while ($all_students[$i])
 		{
-			$j = 0;
-			while ($unique_students[$j])
+			if ($student == $all_students[$i])
 			{
-				if ($unique_students[$j] == $student)
+				print ($k."\n");
 				$k++;
-				$j++;
 			}
 			$i++;
 		}
+		array_push($number_grade, $k);
 	}
-	array_push($number_grade, $j);
+	// print_r($number_grade);
 	return ($number_grade);
 }
+
+
+// function 	get_number_grade($unique_students, $all_students)
+// {
+// 	$number_grade = array();
+// 	foreach ($unique_students as $student)
+// 	{
+// 		$i = 0;
+// 		$k = 0;
+// 		while ($all_students[$i])
+// 		{
+// 			$j = 0;
+// 			while ($unique_students[$j])
+// 			{
+// 				if ($unique_students[$j] == $all_students[$i])
+// 					$k++;
+// 				$j++;
+// 			}
+// 			$i++;
+// 		}
+// 		array_push($number_grade, $j);
+// 	}
+// 	print_r($number_grade);
+// 	return ($number_grade);
+// }
 
 function 	moyenne_user()
 {
@@ -141,44 +166,8 @@ function 	moyenne_user()
 	// print_r($unique_students);
 	// print_r($all_grades);
 	// print_r($sum_grade_unique_student);
-	print_r($number_grade);
+	// print_r($number_grade);
 }
-
-// function 	moyenne_user()
-// {
-// 	$array = get_array();
-// 	$array1 = $array;
-// 	$array2 = $array;
-// 	foreach ($array1 as &$line)
-// 	{
-// 		$tmp = explode(";", $line);
-// 		$line = $tmp[0];
-// 	}
-// 	foreach ($array2 as &$line)
-// 	{
-// 		$tmp = explode(";", $line);
-// 		$line = $tmp[1];
-// 	}
-// 	$array1 = array_values(array_filter($array1, 'strlen'));
-// 	$array2 = array_values(array_filter($array2, 'strlen'));
-// 	$array3 = array();
-// 	foreach ($array1 as $student)
-// 	{
-// 		// print ($student);
-// 		$i = 0;
-// 		foreach($array3 as $exist)
-// 		{
-// 			if ($exist != NULL)
-// 				$i++;
-// 		}
-// 		if ($i == 0)
-// 			array_push($array3, $student);
-// 		// print ($array3[$student]);
-// 		// if ($array3[$student])
-// 		// print ($array3['$student']."\n");
-// 	}
-// 	print_r($array3);
-// }
 
 function 	ecart_moulinette()
 {

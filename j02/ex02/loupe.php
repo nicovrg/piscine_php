@@ -12,13 +12,10 @@ function main ($argv)
 	if(file_exists($argv) == false)
         return 0;
 	$file = fopen($argv, 'r');
-	while (!feof($file))
-	{
-        $line = fgets($file);
-        $line = preg_replace_callback('/<a.*?title="(.*?)">/', "upper", $line);
-        $line = preg_replace_callback('/<a.*?>(.*?)</', "upper", $line);
-        print($line);
-	}
+    $line = fread($file, filesize($argv));
+    $line = preg_replace_callback('/<a.*?title="(.*?)">/', "upper", $line);
+    $line = preg_replace_callback('/<a.*?>(.*?)</', "upper", $line);
+    print($line);
 	fclose($file);
 }
 

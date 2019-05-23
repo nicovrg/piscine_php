@@ -1,26 +1,23 @@
 #!/usr/bin/php
 <?php
 
-function upper($matches)
+function my_regex($matches)
 {
-    $str = str_replace($matches[1], strtoupper($matches[1]), $matches[0]);
-    return($str);
+    $str = preg_replace_callback('#>(.*?)<#si', my_upper, $matches[0]);
+    return ($str);
 }
 
-function main ($argv)
+function my_upper($matches)
 {
-	if(file_exists($argv) == false)
-        return 0;
-	$file = fopen($argv, 'r');
-    $line = fread($file, filesize($argv));
-    $line = preg_replace_callback('/<a.*?title="(.*?)">/', "upper", $line);
-    $line = preg_replace_callback('/<a.*?>(.*?)</', "upper", $line);
-    print($line);
-	fclose($file);
+    $ret = str_replace($matches[1], strtoupper($matches[1]), $matches[0]);
+    return $ret;
 }
 
-if ($argc == 2)
-{
-    main ($argv[1]);
-}
+if ($argc < 2)
+    exit (1);
+$file = fopen($argv[1], "r+") or die("Unable to open file\n");
+$content = fread($file, filesize($argv[1]));
+$result = preg_replace_callback('#<a[^>]*>(.*?)</a>#si', my_regex, $content);
+$result = preg_replace_callback('#<[^>]*title="([^"]*?)"#si', my_upper, $result);
+echo ($result);
 ?>

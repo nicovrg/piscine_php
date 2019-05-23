@@ -50,7 +50,6 @@ function main($argv)
 			continue ;
 		$img = get_img($img_link);
 		file_put_contents($argv.'/'.$img_name, $img);
-		print ($img_link."\n");	
 	}
 	return (0);
 }

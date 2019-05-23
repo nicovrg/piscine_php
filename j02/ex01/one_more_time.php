@@ -76,7 +76,7 @@ function get_time ($day, $day_num, $month, $year, $time)
     $second = substr($second, 0, -6);
     $second = strrev($second);
     $month = get_month ($month);
-    echo (mktime($hour, $minute, $second, $month, $day_num, $year));
+    echo (mktime($hour, $minute, $second, $month, $day_num, $year)."\n");
 }
 
 function main ($argv)

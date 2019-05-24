@@ -11,6 +11,6 @@ if ($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] == "
     Identifiant: <input type="text" name="login" placeholder="login" value="<?php echo $_SESSION['login'] ?>" />
     <br />
     Mot de passe: <input type="text" name="passwd" placeholder="passwd" value="<?php echo $_SESSION['passwd']?>" />
-    <input type="submit">
+    <input type="submit" name="submit" value="OK">
 </form>
 </body></html>

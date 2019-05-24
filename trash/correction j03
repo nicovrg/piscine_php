@@ -19,4 +19,4 @@ curl --head 'localhost:8100/ex05/read_img.php'
 
 ex06
 curl --user zaz:jaimelespetitsponeys 'localhost:8100/ex06/members_only.php'
-curl -v --user root:root 'localhost:8100/ex06/members_only.ph'
+curl -v --user root:root 'localhost:8100/ex06/members_only.php'

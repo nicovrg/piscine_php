@@ -1,6 +1,5 @@
 #!/usr/bin/php
 <?php
-
 date_default_timezone_set('Europe/Paris');
 $fd = fopen("/var/run/utmpx", "rb");
 while ($file = fread($fd, 628))

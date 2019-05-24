@@ -1,4 +1,5 @@
 <?php
+header("WWW-Authenticate: Basic realm=''Espace membres''");
 if ($_SERVER['PHP_AUTH_USER'] === null || $_SERVER['PHP_AUTH_PW'] === null)
     return (0);
 else if ($_SERVER['PHP_AUTH_USER'] === "zaz" && $_SERVER['PHP_AUTH_PW'] === "jaimelespetitsponeys")
@@ -9,7 +10,6 @@ else if ($_SERVER['PHP_AUTH_USER'] === "zaz" && $_SERVER['PHP_AUTH_PW'] === "jai
 else
 {
     header('HTTP/1.0 401 Unauthorized');
-    header("WWW-Authenticate: Basic realm=''Espace membres''");
     echo "<html><body>Cette zone est accessible uniquement aux membres du site</body></html>\n";
 }
 ?>

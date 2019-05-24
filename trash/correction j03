@@ -1,0 +1,22 @@
+ex01
+curl 'localhost:8100/ex01/phpinfo.php
+
+ex02
+curl 'localhost:8100/ex02/print_get.php?login=mmontinet'
+curl 'localhost:8100/ex02/print_get.php?gdb=pied2biche&barry=barreamine'
+
+ex03
+curl -c cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=set&name=plat&value=choucroute'
+curl -b cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=get&name=plat'
+curl -c cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=del&name=plat'
+curl -b cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=get&name=plat'
+
+ex04
+curl 'localhost:8100/ex04/raw_text.php'
+
+ex05
+curl --head 'localhost:8100/ex05/read_img.php'
+
+ex06
+curl --user zaz:jaimelespetitsponeys 'localhost:8100/ex06/members_only.php'
+curl -v --user root:root 'localhost:8100/ex06/members_only.ph'

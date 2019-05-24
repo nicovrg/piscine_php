@@ -6,5 +6,5 @@
     else if ($_GET['action'] === "get" && $_COOKIE[$_GET['name']] !== null)
         echo ($_COOKIE[$_GET['name']]."\n");
     else if ($_GET['action'] === "del")        
-        setcookie ($_GET['name'], null, time() + 3600 * 24 * 365, null, null, false, true);
+        setcookie ($_GET['name'], null, time() - 1, null, null, false, true);
 ?>

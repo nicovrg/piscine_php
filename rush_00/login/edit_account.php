@@ -27,7 +27,7 @@ if ($_POST)
 	}
 	else
 	{
-		header('Location: error_login.php');
+		header('Location: er_login.php');
 		echo ("ERROR\n");
 	}
 }

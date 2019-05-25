@@ -1,7 +1,7 @@
 <?php
 require_once('auth.php');
 session_start();
-if (!($_POST['login'] && $_POST['passwd'] && auth($_POST['login'], $_POST['passwd'])))
+if (!($_POST['login'] && $_POST['passwd'] && $_POST['submit'] == "OK" && auth($_POST['login'], $_POST['passwd'])))
 {
 	$_SESSION['loggued_on_user'] = "";
 	header('Location: index.html');

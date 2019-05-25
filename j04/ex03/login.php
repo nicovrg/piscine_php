@@ -10,6 +10,9 @@
         return (0);    
     } 
     else
+    {
+        $_SESSION['loggued_on_user'] = "";
         echo ("ERROR\n");
+    }
     return (0);
 ?>

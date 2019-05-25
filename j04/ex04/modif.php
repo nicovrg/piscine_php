@@ -1,12 +1,13 @@
 <?php
-if ($_POST['submit'] != "OK" || !$_POST['login'] || !$_POST['oldpw'] || !$_POST['newpw'] || $_POST['login'] == NULL || $_POST['oldpw'] == NULL || $_POST['newpw'] == NULL)
+if ($_POST['submit'] != "OK" || !$_POST['login'] || !$_POST['oldpw'] || !$_POST['newpw'])
 	echo ("ERROR\n");
 else
 {
 	$i = 0;
-	$user["login"] = $_POST['login'];
+	$user["login"] = $_POST['login'];;
 	$top_user = unserialize(file_get_contents("../htdocs/private/passwd"));
-	if ($top_user) {
+	if ($top_user)
+	{
 		foreach ($top_user as $value)
 		{
 			if ($value['login'] == $user["login"]){
@@ -14,6 +15,7 @@ else
 				{
 					$top_user[$i]["passwd"] = hash("sha512", $_POST['newpw']);
 					file_put_contents("../htdocs/private/passwd", serialize($top_user));
+					header('Location: index.html');
 					echo ("OK\n");
 					return (0);
 				}

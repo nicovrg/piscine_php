@@ -24,7 +24,8 @@ else
 		}
 	}
 	$top_user[] = $user;
-	file_put_contents("htdocs/private/passwd", serialize($top_user));
+	file_put_contents("../htdocs/private/passwd", serialize($top_user));
+	header("Location: index.html");
 	echo ("OK\n");
 }
 return (0);

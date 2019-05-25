@@ -1,0 +1,59 @@
+php -S localhost:8100
+j03/ex01
+curl 'localhost:8100/ex01/phpinfo.php
+
+j03/ex02
+curl 'localhost:8100/ex02/print_get.php?login=mmontinet'
+curl 'localhost:8100/ex02/print_get.php?gdb=pied2biche&barry=barreamine'
+
+j03/ex03
+curl -c cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=set&name=plat&value=choucroute'
+curl -b cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=get&name=plat'
+curl -c cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=del&name=plat'
+curl -b cook.txt 'localhost:8100/ex03/cookie_crisp.php?action=get&name=plat'
+
+j03/ex04
+curl 'localhost:8100/ex04/raw_text.php'
+
+j03/ex05
+curl --head 'localhost:8100/ex05/read_img.php'
+
+j03/ex06
+curl --user zaz:jaimelespetitsponeys 'localhost:8100/ex06/members_only.php'
+curl -v --user root:root 'localhost:8100/ex06/members_only.php'
+
+
+j04/ex00
+curl -v -c cook.txt 'localhost:8100/ex00/index.php'
+curl -v -b cook.txt 'localhost:8100/ex00/index.php?login=sb&passwd=beeone&submit=OK'
+curl -v -b cook.txt 'localhost:8100/ex00/index.php'
+curl -v 'localhost:8100/ex00/index.php'
+
+j04/ex01
+rm ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=toto1 -d passwd=titi1 -d submit=OK 'localhost:8100/ex01/create.php'
+more ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=toto1 -d passwd=titi1 -d submit=OK 'localhost:8100/ex01/create.php'
+curl -d login=toto2 -d passwd= -d submit=OK 'localhost:8100/ex01/create.php'
+
+j04/ex02
+rm ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=x -d passwd=21 -d submit=OK 'localhost:8100/ex01/create.php'
+curl -d login=x -d oldpw=21 -d newpw=42 -d submit=OK 'localhost:8100/ex02/modif.php'
+more ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=x -d oldpw=21 -d newpw=42 -d submit=OK 'localhost:8100/ex02/modif.php'
+curl -d login=x -d oldpw=42 -d newpw= -d submit=OK 'localhost:8100/ex02/modif.php'
+
+j04/ex03
+rm ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=toto -d passwd=titi -d submit=OK 'localhost:8100/ex01/create.php
+curl 'localhost:8100/ex03/login.php?login=toto&passwd=titi'
+rm ~/42_Nico/42_gitlab/ongoing/piscine_php/j04/htdocs/private/passwd
+curl -d login=toto -d passwd=titi -d submit=OK 'localhost:8100/ex01/create.php'
+curl -c cook.txt 'localhost:8100/ex03/login.php?login=toto&passwd=titi'
+curl -b cook.txt 'localhost:8100/ex03/whoami.php'
+curl -b cook.txt 'localhost:8100/ex03/logout.php'
+curl -b cook.txt 'localhost:8100/ex03/whoami.php'
+
+j04/ex04
+

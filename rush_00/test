@@ -1,0 +1,10 @@
+
+afficher une liste de categories
+  <ul>
+  <?php
+    foreach ($categories as $category)
+      echo ("<li>".$category)."<li>\n";
+  ?>
+  </ul>
+
+		echo ("<script type='text/javascript'>alert(\"Hello! I am an alert box!!\");</script>");

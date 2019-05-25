@@ -1,0 +1,13 @@
+.button
+{
+    padding:10px 10px; 
+    border:0 none;
+    border:2px solid #ccc;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(rgba(84, 202, 211, 0.637), green, blue, alpha);
+    font-size:15px;
+    margin:15px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}

@@ -1,0 +1,17 @@
+$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha256', $_POST['passwd']), 'admin' => true);
+foreach ($users as $user)
+{
+	if ($user['admin'] == true)
+		echo $user['login']."got POWAAAAAAAA";
+}
+
+	foreach($products as $product)
+		{
+			foreach ($product['cat'] as $product_cat)
+			{
+				foreach ($categories as $category)
+				{
+					if 
+				}
+			}
+		}

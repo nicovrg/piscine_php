@@ -11,9 +11,9 @@ if ($_POST)
 		if (!file_exists("../htdocs/private"))
 			mkdir("../htdocs/private");
 		if (!file_exists("../htdocs/private/passwd"))
-			file_put_contents("../htdocs/private/passwd");
-		if (file_exists("/../htdocs/private/passwd"))
-			$top_user = unserialize(file_get_contents("/../htdocs/private/passwd"));
+			file_put_contents("../htdocs/private/passwd", "");
+		if (file_exists("../htdocs/private/passwd"))
+			$top_user = unserialize(file_get_contents("../htdocs/private/passwd"));
 		if ($top_user) 
 		{
 			foreach ($top_user as $value)

@@ -75,7 +75,7 @@ if (!$_SESSION[basket])
 		}
 }
 
-if ($_SESSION[basket]) //&& $_POST[value] !== "empty" && $_POST[command] !== "ok")
+if ($_SESSION[basket])
 {
 	foreach ($_SESSION[basket] as $key => $elem)
 	{	
@@ -83,7 +83,6 @@ if ($_SESSION[basket]) //&& $_POST[value] !== "empty" && $_POST[command] !== "ok
 		echo "<tr> <td class=\"basket\"><b>$elem[name]</b></td> <td class=\"basket\"> $price € </td> <td class=\"basket\"> $elem[price] € </td> <td class=\"basket\"> $elem[quantity]
 		</td> </tr>";
 		$total = $total + $multiply;
-		//calcul a revoir si ya un souci;
 	}
 	echo "<tr class=\"basket\"> <td>Total : $total € <td></tr></table><br /><br/>";
 

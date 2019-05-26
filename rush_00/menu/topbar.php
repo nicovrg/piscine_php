@@ -18,6 +18,6 @@
             <a href="../login/edit_account.php">Edit account</a>
             <a href="../admin/admin.php" class="admin_navbar">Admin</a>';
   ?>
-  <a href="../basket/basket.php">Basket</a>  
+  <a href="../basket/order.php">Basket</a>  
   <a href="../index.php">Home</a>  
 </div>

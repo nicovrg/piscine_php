@@ -8,11 +8,16 @@ if ($_POST)
 		mkdir("../htdocs/items");
 	if (!file_exists("../htdocs/items/basket"))
 		file_put_contents("../htdocs/items/basket", "");
-	if ($_POST['name'] && $_POST['submit'] == "OK")
+	if ($_SESSION['loggued_on_user'])
 	{
 		$basket = unserialize(file_get_contents("../htdocs/items/basket"));
-		$basket[] = $_POST['name'];
-		file_put_contents("../htdocs/items/basket", serialize($basket));	
+		foreach($basket as $product => $value) 
+		{
+			?><div>
+				<?=$value["name"]?>
+				<?=$value["price"]." € / kg"?>
+			</div><?
+		}
 		header('Location: ../index.php');
 	}
 	else

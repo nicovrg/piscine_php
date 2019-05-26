@@ -34,7 +34,6 @@ if ($_POST)
 		echo ("ERROR\n");
 }
 require('../menu/topbar.php');
-require('../menu/mainbar.php');
 ?>
 <!DOCTYPE html>
 <html>

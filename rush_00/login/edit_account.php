@@ -32,7 +32,6 @@ if ($_POST)
 	}
 }
 require('../menu/topbar.php');
-require('../menu/mainbar.php');
 ?>
 <!DOCTYPE html>
 <html>

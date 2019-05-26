@@ -16,6 +16,10 @@ if ($_POST)
 			file_put_contents("htdocs/items/categories", "");
 		if (!file_exists("htdocs/items/products"))
 			file_put_contents("htdocs/items/products", "");
+		if (!file_exists("htdocs/items/orders"))
+			file_put_contents("htdocs/items/orders", "");
+		if (!file_exists("htdocs/items/basket"))
+			file_put_contents("htdocs/items/basket", "");
 		$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "yes");
 		$categories = array('fruit', 'vegetable', 'aromate', 'flowers', 'tea', 'others'); 
 		$products = array(
@@ -39,9 +43,6 @@ if ($_POST)
 			array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg'),
 		);
 		header('Location: index.php');
-		// print_r($users);
-		// print_r($categories);
-		// print_r($products);
 		file_put_contents("htdocs/private/passwd", serialize($users));
 		file_put_contents("htdocs/items/categories", serialize($categories));
 		file_put_contents("htdocs/items/products", serialize($products));
@@ -53,7 +54,6 @@ if ($_POST)
 		echo ("ERROR\n");
 }
 require('menu/topbar.php');
-// require('menu/sidebar.php');
 ?>
 <!DOCTYPE html>
 <html>

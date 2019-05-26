@@ -23,9 +23,10 @@
 	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 1.15em;
-	width: 10vh;
+	width: 8 vw;
 	color: white;
-	font-size: 20px;
+	font-style: italic;
+	font-size: 1vw;
 	background-color: #234C42;
 	border-radius: 1em;
 }
@@ -38,9 +39,9 @@
 	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 1em;
-	width: 10vw;
+	width: 8vw;
 	color: white;
-	font-size: 20px;
+	font-size: 1.2vw;
 	background-color: #234C42;
 	border-radius: 1em;
 	color: whitesmoke;
@@ -48,7 +49,7 @@
 
 .sidebar_title:hover
 {
-	background-color:rgb(27, 173, 27);
+	background-color:rgb(112, 112, 112);
 }
 
 .sidebar_foreach:hover

@@ -1,7 +1,4 @@
 <?php
-//include("../index.php");
-include ("op_basket.php");
-include ("display.php");
 if (file_exists("../htdocs/items/categories"))
 {
 	$categories = file_get_contents("../htdocs/items/categories");
@@ -22,7 +19,26 @@ $products = unserialize($products);
 <table>
 <tr > <td class="basket" style="border-radius:5px; background-color:336666"><b>product</b></td> <td class="basket" style="border-radius:5px; background-color:336666">price</td> <td class="basket" style="border-radius:5px; background-color:336666">total</td><td class="basket" style="border-radius:5px; background-color:336666">quantity/td> <br /></tr>
 </HTML>
-<?php 
+
+<?php
+
+foreach ($_SESSION['basket'] as &$products)
+{
+	echo '
+	<div class="product">
+		<p class="name">'.$product['name'].'</p>
+		<form method="POST" action ="basket.php">
+			<input type="hidden" name="name" value="'.$product['name'].'" />
+			Quantity: <input type="number" name="quantity" value="'.$product['quantity'].'"/>
+			<p>'.$product['quantity'].'</p>
+			<br />
+			<input type="submit" name="submit" value="OK"/>
+		</form>
+		<a>
+		</a>
+	</div>
+	';
+}
 
 if (!$_SESSION[basket])
 {
@@ -47,14 +63,16 @@ if (!$_SESSION[basket])
 		array('name' => 'mint', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-menthe.png'),
 		array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg'),
 	);
-	{
 		foreach($products as $key => $row)
 		{
 			echo "~ <b>".$row["name"]."</b> ~<br><br>";
 			echo "<div><img src =".$row["img"]." width=100px height=100px></div>";
 			echo "<i>Price: ".$row["price"]." € / kg</i><br><br>";
 		}
-	}
+		if ($product['name'] == $_POST['name'])
+		{
+			$product['quantity'] = $_POST['quantity'];
+		}
 }
 
 if ($_SESSION[basket]) //&& $_POST[value] !== "empty" && $_POST[command] !== "ok")
@@ -80,7 +98,6 @@ if ($_SESSION[basket]) //&& $_POST[value] !== "empty" && $_POST[command] !== "ok
 	<form style=\"font-size:20px\" method=\"post\"action=\"basket.php?value=empty\">
 	<input type=\"submit\" name=\"empty\" value=\"Vider le basket\"/>
 	</form>";
-
 }
 
 if($_POST[value] === "empty")

@@ -25,10 +25,10 @@ foreach ($products as $key => $value)
 <b style="font-family: 'Just Another Hand', cursive; font-size:40px; letter-spacing:2px">price :</b> <?php echo "$price €"; ?>
 <br />
 <br />
-<form method="post" action="produit.php?<?php echo "prod=$name";?>">
+<form method="post" action="display.php?<?php echo "prod=$name";?>">
 <span> <img src="./imagesdebase/panier.png" height="40px" width="40px" style="position:relative; top:10px">
-	<input type="number" min="1" max="10" name ="quantity" value="0" />
-	<input type="submit" name="add" style="background:#dcf442" value="Ajouter au panier"/></span>
+	<input type="number" min="1" max="12" name ="quantity" value="0" />
+	<input type="submit" name="add" style="background:#dcf442" value="Add to the basket"/></span>
 </form>
 
 <?php
@@ -45,8 +45,8 @@ if ($value === "Add to the basket")
 }
 else 
 {
-	echo "<br>Page non disponible";
-	echo "<br /><a href=\"index.php\" class=\"button\" style=\"position:relative; top:10px; left: -10px \" > Retour a la page d'accueil </a>";
+	echo "<br>Web page not available";
+	echo "<br /><a href=\"../index.php\" class=\"button\" style=\"position:relative; top:10px; left: -10px \" >Go to main screen</a>";
 }
 
 

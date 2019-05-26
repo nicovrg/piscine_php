@@ -1,9 +1,8 @@
-.sidebar
+.basketbar
 {
-	display: flex;
+	display:flex;
 	flex-direction: column;
-	align-content: center;
-	width: 10vw;
+	width: 5vw;
 	margin-top: 2em;
 	margin-left: 2em;
 	padding-left: 2em;
@@ -16,7 +15,7 @@
 	border-radius: 1em;
 }
 
-.sidebar_foreach
+.basketbar_foreach
 {
 	display:flex;
 	flex-direction: column;
@@ -26,32 +25,30 @@
 	width: 10vh;
 	color: white;
 	font-size: 20px;
-	background-color: #234C42;
+	background-color: #333;
 	border-radius: 1em;
 }
 
-.sidebar_title
+.basketbar_title
 {
 	display:flex;
 	flex-direction: column;
-	align-content: center;
 	padding-top: 1em;
 	padding-bottom: 1em;
-	padding-left: 1em;
-	width: 10vw;
+	width: 10vh;
 	color: white;
 	font-size: 20px;
-	background-color: #234C42;
+	background-color: #333;
 	border-radius: 1em;
 	color: whitesmoke;
 }
 
-.sidebar_title:hover
+.basketbar_title:hover
 {
 	background-color:rgb(27, 173, 27);
 }
 
-.sidebar_foreach:hover
+.basketbar_foreach:hover
 {
 	background-color:rgb(27, 173, 27);
 }

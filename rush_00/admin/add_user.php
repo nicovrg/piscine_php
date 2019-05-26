@@ -45,7 +45,7 @@ require('../menu/topbar.php');
 <?php
 if (isset($confirm)) 
 	echo $confirm;
-else if (isset($erno)) 
+else if (isset($erno))
 	echo $erno;
 ?>
 </html>

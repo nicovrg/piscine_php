@@ -1,0 +1,75 @@
+.general
+{
+	display:flex;
+	flex-direction: row;
+	margin-top: 20em;
+	margin-left: 30em;
+	margin-right: 30em;
+	margin-bottom: 20em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	width: 80vh;
+	color: white;
+	font-size: 20px;
+	background-color: rgba(60, 221, 38, 0.781);
+	border-radius: 1em;
+}
+
+.user
+{
+	display:flex;
+	flex-direction: column;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 4em;
+	margin-right: 2em;
+	width: 10vh;
+	color: white;
+	font-size: 20px;
+	background-color: rgb(117, 236, 153);
+	border-radius: 1em;
+}
+
+.category
+{
+	display:flex;
+	flex-direction: column;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 4em;
+	margin-right: 2em;
+	width: 10vh;
+	color: white;
+	font-size: 20px;
+	background-color: rgb(117, 236, 153);
+	border-radius: 1em;
+}
+
+.product
+{
+	display:flex;
+	flex-direction: column;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 4em;
+	margin-right: 2em;
+	width: 10vh;
+	color: white;
+	font-size: 20px;
+	background-color: rgb(117, 236, 153);
+	border-radius: 1em;
+}

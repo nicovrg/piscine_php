@@ -15,18 +15,26 @@ if ($_SESSION['loggued_on_user'] && $_SESSION['admin'] == 1)
             <link rel="stylesheet" type="text/css" href="../style/admin.css">
         </head>
         <body>
-            <h3>Users</h3><br>
-            <a href="add_user.php">Add User</a><br>
-            <a href="edit_user.php">Edit User </a><br>
-            <a href="remove_user.php">Remove User</a><br>
-            <h3>Categories</h3><br>
-            <a href="add_category.php">Add Categories</a><br>
-            <a href="edit_category.php">Edit Categories</a><br>
-            <a href="remove_category.php">Remove Categories</a><br>
-            <h3>Products</h3><br>
-            <a href="add_product.php">Add Product</a><br>
-            <a href="edit_product.php">Edit Product</a><br>
-            <a href="remove_product.php">Remove Product</a><br>
+            <div class="general">
+                <div class="user">
+                    <h3>Users</h3><br>
+                    <a href="add_user.php">Add User</a><br>
+                    <a href="edit_user.php">Edit User </a><br>
+                    <a href="remove_user.php">Remove User</a><br>
+                </div>
+                <div class="category">    
+                    <h3>Categories</h3><br>
+                    <a href="add_category.php">Add Categories</a><br>
+                    <a href="edit_category.php">Edit Categories</a><br>
+                    <a href="remove_category.php">Remove Categories</a><br>
+                </div>
+                <div class="product">
+                    <h3>Products</h3><br>
+                    <a href="add_product.php">Add Product</a><br>
+                    <a href="edit_product.php">Edit Product</a><br>
+                    <a href="remove_product.php">Remove Product</a><br>
+                </div>    
+            </div>
         </body>
         </html>
         <?

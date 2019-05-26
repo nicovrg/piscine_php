@@ -11,14 +11,14 @@ if ($_POST)
 			$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "yes");
 			file_put_contents("../htdocs/private/passwd", serialize($users));
 			$confirm = '<script>alert("User added");</script>';
-			exit();		
+			header('Location: admin.php');
 		}
 		else if ($users && $_POST['admin'] === "no")
 		{
 			$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "no");
 			file_put_contents("../htdocs/private/passwd", serialize($users));
 			$confirm = '<script>alert("User added");</script>';
-			exit();
+			header('Location: admin.php');
 		}
 	}
 	else
@@ -31,6 +31,7 @@ require('../menu/topbar.php');
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../style/topbar.css">
+    <link rel="stylesheet" type="text/css" href="../style/admin.css">
 </head>
 <body>
 	<form action="add_user.php" method="POST">

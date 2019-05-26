@@ -2,34 +2,42 @@
 session_start();
 if ($_POST)
 {
-	// print $_POST['old_login'];
-	// print $_POST['old_login'];
-	// print $_POST['new_passwd'];
-	// print $_POST['new_passwd'];
-	// print $_POST['admin'];
+	$check = 0;
 	if ($_POST['old_login'] && $_POST['old_passwd'] && $_POST['new_login'] && $_POST['new_passwd'] && $_POST['admin'] && $_POST['submit'] == "OK")
 	{
-	//check if login is in array
 		$users = unserialize(file_get_contents("../htdocs/private/passwd"));
-		if ($users && $_POST['admin'] === "yes")
+		if ($users)
 		{
-			unset($users['old_login']);
-			unset($users['old_passwd']);
-			unset($users['admin']);
-			$users[] = array('login' => $_POST['new_login'], 'passwd' => hash('sha512', $_POST['old_passwd']), 'admin' => "yes");
-			file_put_contents("../htdocs/private/passwd", serialize($users));
+			foreach ($users as $user)
+			{
+				if ($user['login'] == $_POST['old_login'])
+					$check = 1;
+			}
 		}
-		else if ($users && $_POST['admin'] === "no")
+		if ($check == 1)
 		{
-			unset($users['old_login']);
-			unset($users['old_passwd']);
-			unset($users['admin']);
-			$users[] = array('login' => $_POST['new_login'], 'passwd' => hash('sha512', $_POST['old_passwd']), 'admin' => "no");
-			file_put_contents("../htdocs/private/passwd", serialize($users));
+			if ($users && $_POST['admin'] === "yes")
+			{
+				unset($users['old_login']);
+				unset($users['old_passwd']);
+				unset($users['admin']);
+				$users[] = array('login' => $_POST['new_login'], 'passwd' => hash('sha512', $_POST['old_passwd']), 'admin' => "yes");
+				file_put_contents("../htdocs/private/passwd", serialize($users));
+			}
+			else if ($users && $_POST['admin'] === "no")
+			{
+				unset($users['old_login']);
+				unset($users['old_passwd']);
+				unset($users['admin']);
+				$users[] = array('login' => $_POST['new_login'], 'passwd' => hash('sha512', $_POST['old_passwd']), 'admin' => "no");
+				file_put_contents("../htdocs/private/passwd", serialize($users));
+			}
+			else
+				$erno1 = '<script>alert("All fields are required");</script>';
 		}
+		else
+			$erno2 = '<script>alert("User does not exist - Go to add user");</script>';
 	}
-	else
-		$erno = '<script>alert("All fields are required");</script>';
 }
 require('../menu/topbar.php');
 ?>
@@ -49,6 +57,10 @@ require('../menu/topbar.php');
 		<input type="submit" name="submit" value="OK"/>
 	</form>
 </body>
-</html>
 <?php
-// require('sidebar/sidebar.php');
+if (isset($erno))
+	echo $erno1;
+if (isset($erno)) 
+	echo $erno2;
+?>
+</html>

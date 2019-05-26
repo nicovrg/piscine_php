@@ -22,6 +22,7 @@ require('../menu/topbar.php');
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../style/topbar.css">
+	<link rel="stylesheet" type="text/css" href="../style/admin.css">
 </head>
 <body>
 	<p>Add Product:</p>

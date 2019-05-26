@@ -1,25 +1,26 @@
-.main_sidebar
+.mainbar_title
 {
 	display:flex;
-	flex-direction: column;
-	flex: 10%;
-	width: 5vw;
-	margin-top: 2em;
-	margin-left: 2em;
-	padding-left: 2em;
-	padding-top: 1em;
+	flex-direction: row;
+	/* margin-top: 20em; */
+	margin-left: 30em;
+	margin-right: 30em;
+	margin-bottom: 20em;
+	/* padding-top: 1em; */
 	padding-bottom: 1em;
+	padding-left: 2em;
 	padding-right: 2em;
+	width: 80vh;
 	color: white;
 	font-size: 20px;
 	background-color: #333;
 	border-radius: 1em;
 }
 
-.sidebar
+.mainbar
 {
 	display:flex;
-	flex: 10%;
+	flex: 80%;
 	flex-direction: column;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -39,6 +40,7 @@
 .sidebar_title
 {
 	display:flex;
+	flex: 80%;
 	flex-direction: column;
 	margin-top: 2em;
 	margin-left: 2em;

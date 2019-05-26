@@ -1,6 +1,6 @@
 <?PHP
-	session_start();
-	$categories = unserialize(file_get_contents("htdocs/items/categories"));	
+session_start();
+$categories = unserialize(file_get_contents("htdocs/items/categories"));	
 ?>
 <html>
 <body>

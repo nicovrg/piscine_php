@@ -17,7 +17,7 @@ if ($_POST)
 		if (!file_exists("htdocs/items/products"))
 			file_put_contents("htdocs/items/products", "");
 		$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "yes");
-		$categories = array('fruit', 'vegetable', 'aromate', 'others'); 
+		$categories = array('fruit', 'vegetable', 'aromate', 'flowers', 'thea', 'others'); 
 		$products = array(
 			array('name' => 'tomatoe', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-tomates-de-saison.png'),
 			array('name' => 'apple', 'cat' => array('fruit'), 'price' => 3, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-pomme-royal-gala.png'),
@@ -39,9 +39,9 @@ if ($_POST)
 			array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg'),
 		);
 		header('Location: index.php');
-		print_r($users);
-		print_r($categories);
-		print_r($products);
+		// print_r($users);
+		// print_r($categories);
+		// print_r($products);
 		file_put_contents("htdocs/private/passwd", serialize($users));
 		file_put_contents("htdocs/items/categories", serialize($categories));
 		file_put_contents("htdocs/items/products", serialize($products));

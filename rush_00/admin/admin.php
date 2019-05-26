@@ -1,7 +1,7 @@
 <?PHP
 session_start();
-print $_SESSION['loggued_on_user'];
-print $_SESSION['admin'];
+// print $_SESSION['loggued_on_user'];
+// print $_SESSION['admin'];
 if ($_SESSION['loggued_on_user'] && $_SESSION['admin'] == 1)
 {
 	$users = unserialize(file_get_contents("../htdocs/private/passwd"));

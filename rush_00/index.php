@@ -8,8 +8,8 @@ require('menu/sidebar.php');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style/topbar.css">
+	<link rel="stylesheet" type="text/css" href="style/sidebar.css">
 </head>
 <body>
-<p>Sign in (index.php)</p>
 </body>
 </html>

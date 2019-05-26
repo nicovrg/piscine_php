@@ -1,5 +1,5 @@
 <?PHP
-print_r($_POST);
+// print_r($_POST);
 if ($_SESSION['basket'] == NULL)
 {
 	$_SESSION['basket'] = array(
@@ -25,19 +25,19 @@ if ($_POST['name'] != NULL)
 	{
 		if ($product['name'] == $_POST['name'])
 		{
-			echo 'prout';
+			// echo 'prout';
 			$product['quantity'] = $_POST['quantity'];
-			print_r($product);
+			// print_r($product);
 		}
 		unset($product['name']);
 	}
 }
-echo '<div id="cart">';
+// echo '<div id="cart">';
 	if ($_SESSION['basket'] != NULL)
 	{
 		foreach ($_SESSION['basket'] as $product)
 		{
-			echo '
+			// echo '
 			<div class="product">
 				<p class="name">'.$product['name'].'</p>
 				<form method="POST" action ="basket.php">
@@ -54,8 +54,8 @@ echo '<div id="cart">';
 		}
 	}
 	else
-		echo "<p>Votre panier est vide.</p>";
-echo "</div>";
+		// echo "<p>Votre panier est vide.</p>";
+// echo "</div>";
 require('../menu/topbar.php');
 ?>
 

@@ -34,6 +34,7 @@ if ($_POST)
 		echo ("ERROR\n");
 }
 require('../menu/topbar.php');
+require('../menu/mainbar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,5 +50,3 @@ require('../menu/topbar.php');
 	</form>
 </body>
 </html>
-<?php
-// require('sidebar/sidebar.php');

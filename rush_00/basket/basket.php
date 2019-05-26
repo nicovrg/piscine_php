@@ -16,8 +16,8 @@ $products = unserialize($products);
 <HTML>
 <head>
     <meta charset="utf-8">
-	<title>Basket</title>
-	<!-- <link rel="stylesheet" type="text/css" href="basket.css"> -->
+	<title>L'épicerie des Rêves</title>
+	<link rel="stylesheet" type="text/css" href="../style/basket.css">
 </head>
 <table>
 <tr > <td class="basket" style="border-radius:5px; background-color:336666"><b>product</b></td> <td class="basket" style="border-radius:5px; background-color:336666">price</td> <td class="basket" style="border-radius:5px; background-color:336666">total</td><td class="basket" style="border-radius:5px; background-color:336666">quantity/td> <br /></tr>
@@ -26,11 +26,11 @@ $products = unserialize($products);
 
 if (!$_SESSION[basket])
 {
-	echo "Let's find the item you dream of to fulfill your basket !";
+	echo "Let's find the item you dream of to fulfill your basket !\n";
 	$products = array(
 		array('name' => 'tomatoe', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'quantity' => 2, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-tomates-de-saison.png'),
-		array('name' => 'apple', 'cat' => array('fruit'), 'price' => 3, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-pomme-royal-gala.png'),
-		array('name' => 'apricot', 'cat' => array('fruit'), 'price' => 4, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
+		array('name' => 'apple', 'cat' => array('fruit'), 'price' => 3, 'quantity' => 4, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-pomme-royal-gala.png'),
+		array('name' => 'apricot', 'cat' => array('fruit'), 'price' => 4, 'quantity' => 5, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
 		array('name' => 'basil', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425122630.jpg'),
 		array('name' => 'bean', 'cat' => array('vegetable'), 'price' => 3, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-haricots-coco.png'),
 		array('name' => 'carrot', 'cat' => array('vegetable'), 'price' => 2, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-carotte.png'),
@@ -45,26 +45,27 @@ if (!$_SESSION[basket])
 		array('name' => 'cherry', 'cat' => array('fruit'), 'price' => 6, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
 		array('name' => 'raspberry', 'cat' => array('fruit'), 'price' => 8, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425182028.jpg'),
 		array('name' => 'mint', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-menthe.png'),
-		array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg')
+		array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg'),
 	);
 	{
 		foreach($products as $key => $row)
 		{
-			echo "-<b>".$row["name"]."</b> :<br><br>";
+			echo "~ <b>".$row["name"]."</b> ~<br><br>";
 			echo "<div><img src =".$row["img"]." width=100px height=100px></div>";
-			echo "<i>Prix :".$row["prix"]."€</i><br><br>";
+			echo "<i>Price: ".$row["price"]." € / kg</i><br><br>";
 		}
 	}
 }
 
-if ($_SESSION[basket] && $_POST[value] !== "empty" && $_POST[command] !== "ok")
+if ($_SESSION[basket]) //&& $_POST[value] !== "empty" && $_POST[command] !== "ok")
 {
 	foreach ($_SESSION[basket] as $key => $elem)
 	{	
-		$price = $elem[price] / $elem[quantity];
+		$multiply = $elem[price] * $elem[quantity];
 		echo "<tr> <td class=\"basket\"><b>$elem[name]</b></td> <td class=\"basket\"> $price € </td> <td class=\"basket\"> $elem[price] € </td> <td class=\"basket\"> $elem[quantity]
 		</td> </tr>";
-		$total = $total + $elem[price];
+		$total = $total + $multiply;
+		//calcul a revoir si ya un souci;
 	}
 	echo "<tr class=\"basket\"> <td>Total : $total € <td></tr></table><br /><br/>";
 
@@ -107,7 +108,7 @@ if($_POST[value] === "empty")
 				$commandes[] = $tab;
 				$str = serialize($commandes);
 				file_put_contents("../htdocs/items/orders", $str);
-				echo "Order successfully sent ! Thank you an see you soon !";
+				echo "Order successfully sent ! Thank you and see you soon !";
 				unset($_SESSION[basket]);
 			}		
 		}

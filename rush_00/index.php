@@ -1,7 +1,6 @@
 <?php
 session_start();
 require('menu/topbar.php');
-require('menu/sidebar.php');
 require('menu/mainbar.php');
 require('basket/quickview.php');
 ?>

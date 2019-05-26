@@ -1,6 +1,7 @@
 <?php
 session_start();
-function add($name,$quantity,$price)
+
+function ft_add($name, $quantity, $price)
 {
 	$select = array(name => $name, quantity => $quantity, price => ($quantity*$price));
 	if (isset($_SESSION[basket]))

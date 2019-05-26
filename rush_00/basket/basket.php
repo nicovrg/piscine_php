@@ -56,5 +56,6 @@ echo '<div id="cart">';
 	else
 		echo "<p>Votre panier est vide.</p>";
 echo "</div>";
+require('../menu/topbar.php');
 ?>
 

@@ -2,7 +2,7 @@
 session_start();
 if ($_POST)
 {
-	if ($_POST['category']&& $_POST['submit'] == "OK")
+	if (isset($_POST['category']) && isset($_POST['submit']) == "OK")
 	{
 		$categories = unserialize(file_get_contents("../htdocs/items/categories"));
 		if ($categories)
@@ -39,5 +39,3 @@ else if (isset($erno))
 	echo $erno;
 ?>
 </html>
-<?php
-// require('sidebar/sidebar.php');

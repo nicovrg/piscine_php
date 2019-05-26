@@ -21,18 +21,18 @@ if ($_POST)
 		$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha256', $_POST['passwd']), 'admin' => true);
 		$categories = array('fruit', 'vegetable', 'aromate', 'others'); 
 		$products = array(
-			array('name' => 'tomate', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'img' => 'url/imgur'),
-			array('name' => 'pomme', 'cat' => array('fruit'), 'price' => 3, 'img' => 'url/imgur'),
-			array('name' => 'abricot', 'cat' => array('fruit'), 'price' => 4, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
-			array('name' => 'romarin', 'cat' => array('aromate'), 'price' => 1, 'img' => 'url/imgur'),
-			array('name' => 'haricot', 'cat' => array('vegetable'), 'price' => 3, 'img' => 'url/imgur'),
+			array('name' => 'tomatoe', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-tomates-de-saison.png'),
+			array('name' => 'apple', 'cat' => array('fruit'), 'price' => 3, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-pomme-royal-gala.png'),
+			array('name' => 'apricot', 'cat' => array('fruit'), 'price' => 4, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg)'),
+			array('name' => 'basil', 'cat' => array('aromate'), 'price' => 1, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425122630.jpg)'),
+			array('name' => 'bean', 'cat' => array('vegetable'), 'price' => 3, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-haricots-coco.png)'),
 			array('name' => 'orange', 'cat' => array('fruit'), 'price' => 2, 'img' => 'url/imgur'),
-			array('name' => 'champignon', 'cat' => array('others'), 'price' => 5, 'img' => 'url/imgur'),
-			array('name' => 'truffe', 'cat' => array('others'), 'price' => 55, 'img' => 'url/imgur'),
-			array('name' => 'artichaud', 'cat' => array('others'), 'price' => 1, 'img' => 'url/imgur'),
-			array('name' => 'cerise', 'cat' => array('fruit'), 'price' => 10, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
-			array('name' => 'framboise', 'cat' => array('fruit'), 'price' => 1, 'img' => 'url/imgur'),
-			array('name' => 'thin', 'cat' => array('aromate'), 'price' => 3, 'img' => 'url/imgur'),
+			array('name' => 'mushroom', 'cat' => array('others'), 'price' => 5, 'img' => 'url/imgur'),
+			array('name' => 'truffle', 'cat' => array('others'), 'price' => 55, 'img' => 'url/imgur'),
+			array('name' => 'artichoke', 'cat' => array('others'), 'price' => 1, 'img' => 'url/imgur'),
+			array('name' => 'cherry', 'cat' => array('fruit'), 'price' => 10, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
+			array('name' => 'raspberry', 'cat' => array('fruit'), 'price' => 1, 'img' => 'url/imgur'),
+			array('name' => 'mint', 'cat' => array('aromate'), 'price' => 3, 'img' => 'url/imgur'),
 			array('name' => 'thieul', 'cat' => array('aromate'), 'price' => 2, 'img' => 'url/imgur')
 		);
 		header('Location: index.php');

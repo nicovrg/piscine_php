@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('menu/topbar.php');
-// require('menu/sidebar.php');
+require('menu/sidebar.php');
 ?>
 <!DOCTYPE html>
 <html>

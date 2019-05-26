@@ -10,11 +10,15 @@ if ($_POST)
 			$_SESSION['admin'] = 1;
 			$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "yes");
 			file_put_contents("../htdocs/private/passwd", serialize($users));
+			$confirm = '<script>alert("User added");</script>';
+			exit();		
 		}
 		else if ($users && $_POST['admin'] === "no")
 		{
 			$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "no");
 			file_put_contents("../htdocs/private/passwd", serialize($users));
+			$confirm = '<script>alert("User added");</script>';
+			exit();
 		}
 	}
 	else
@@ -36,6 +40,12 @@ require('../menu/topbar.php');
 		<input type="submit" name="submit" value="OK"/>
 	</form>
 </body>
+<?php
+if (isset($confirm)) 
+	echo $confirm;
+else if (isset($erno)) 
+	echo $erno;
+?>
 </html>
 <?php
 // require('sidebar/sidebar.php');

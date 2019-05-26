@@ -39,9 +39,12 @@ if ($_POST)
 			array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg'),
 		);
 		header('Location: index.php');
+		print_r($users);
+		print_r($categories);
+		print_r($products);
 		file_put_contents("htdocs/private/passwd", serialize($users));
-		file_put_contents("htdocs/category", serialize($categories));
-		file_put_contents("htdocs/product", serialize($products));
+		file_put_contents("htdocs/items/categories", serialize($categories));
+		file_put_contents("htdocs/items/products", serialize($products));
 		echo ("OK\n");
 		exit();
 	}

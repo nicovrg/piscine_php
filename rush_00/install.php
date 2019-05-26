@@ -4,8 +4,6 @@ if ($_POST)
 {
 	if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'])
 	{
-		$user["login"] = $_POST['login'];
-		$user["passwd"] = hash("sha512", $_POST['passwd']);
 		if (!file_exists("htdocs"))
 			mkdir("htdocs");
 		if (!file_exists("htdocs/private"))
@@ -18,7 +16,7 @@ if ($_POST)
 			file_put_contents("htdocs/items/categories", "");
 		if (!file_exists("htdocs/items/products"))
 			file_put_contents("htdocs/items/products", "");
-		$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha256', $_POST['passwd']), 'admin' => true);
+		$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => "yes");
 		$categories = array('fruit', 'vegetable', 'aromate', 'others'); 
 		$products = array(
 			array('name' => 'tomatoe', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-tomates-de-saison.png'),
@@ -45,6 +43,7 @@ if ($_POST)
 		file_put_contents("htdocs/category", serialize($categories));
 		file_put_contents("htdocs/product", serialize($products));
 		echo ("OK\n");
+		exit();
 	}
 	else
 		echo ("ERROR\n");

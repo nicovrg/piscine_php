@@ -1,16 +1,16 @@
 <?PHP
 session_start();
-if ($_SESSION['loggued_on_user'])
+if ($_SESSION['loggued_on_user'] && $user['admin'] == "yes")
 {
 	$authorize = 0;
 	$users = unserialize(file_get_contents("../htdocs/private/passwd"));
-    print_r ($users);
+    // print_r ($users);
     foreach ($users as $user)
     {
         print "one".$user['admin']."1\n";
-        print "two".$user['name']."2\n";
+        print "two".$user['login']."2\n";
         print "three".$_SESSION['loggued_on_user']."3\n";
-		if ($user['admin'] == true && $user['name'] == $_SESSION['loggued_on_user'])
+		if ($user['admin'] == "yes" && $user['name'] == $_SESSION['loggued_on_user'])
 			$authorize = 1;
     }
 	if ($authorize == 1)

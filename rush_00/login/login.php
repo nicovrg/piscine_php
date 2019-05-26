@@ -9,14 +9,25 @@ if ($_POST)
 		mkdir("../htdocs/private");
 	if (!file_exists("../htdocs/private/passwd"))
 		file_put_contents("../htdocs/private/passwd", "");
-	if (!($_POST['login'] && $_POST['passwd'] && $_POST['submit'] == "OK" && auth($_POST['login'], $_POST['passwd'])))
+	if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] == "OK")
 	{
-		header('Location: error_login.php');
-		$_SESSION['loggued_on_user'] = "";
-		echo ("ERROR\n");
+		$ret = auth($_POST['login'], $_POST['passwd']);
+		if ($ret === 1)
+		{
+			$_SESSION['admin'] = 1;
+			$_SESSION['loggued_on_user'] = $_POST['login'];
+			header('Location: ../index.php');
+			exit();
+		}
+		if ($ret === 0)
+		{
+			$_SESSION['loggued_on_user'] = $_POST['login'];
+			header('Location: ../index.php');
+			exit();
+		}
+		if ($ret === -1)
+			$erno = '<script>alert("All fields are required");</script>';
 	}
-	else 
-		$_SESSION['loggued_on_user'] = $_POST['login'];
 }
 require('../menu/topbar.php');
 ?>
@@ -33,4 +44,8 @@ require('../menu/topbar.php');
 		<input type="submit" name="submit" value="OK"/>
 	</form>
 </body>
+<?php
+if (isset($erno)) 
+	echo $erno;
+?>
 </html>

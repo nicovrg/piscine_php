@@ -9,8 +9,8 @@
 		<div>
 			<?php foreach($products as $product => $value): ?>
 				<div class="sidebar">
-					<p>Product:</p><?=$value["name"]?>
-					<p>Price:</p><?=$value["price"]?>
+					<?=$value["name"]?>
+					<?=$value["price"]?>
 					<img src = <?=$value["img"]?>>
 				</div>
 			<?php endforeach; ?>

@@ -5,27 +5,23 @@ if ($_POST)
 	$check = 0;
 	if ($_POST['old_name'] && $_POST['new_name'] && $_POST['old_category'] && $_POST['new_category'] && $_POST['old_price'] && $_POST['new_price'] && $_POST['old_img'] && $_POST['new_img'] && $_POST['submit'] == "OK")
 	{
-		$products = unserialize(file_get_contents("../htdocs/private/passwd"));
+		$products = unserialize(file_get_contents("../htdocs/items/products"));
 		if ($products)
 		{
+			$i = 0;
 			foreach ($products as $product)
 			{
-				if ($product['new_name'] == $_POST['old_name'])
+				if ($products[$i]['name'] === $_POST['old_name'])
 					$check = 1;
+				if ($check === 0)
+					$i++;
 			}
 		}
-		if ($check == 1)
+		if ($check === 1)
 		{
-				unset($products['old_name']);
-				unset($products['new_name']);
-				unset($products['old_category']);
-				unset($products['new_category']);
-				unset($products['old_price']);
-				unset($products['new_price']);
-				unset($products['old_img']);
-				unset($products['new_img']);
-				$products[] = array('name' => $_POST['new_name'], 'cat' => $_POST['new_category'], 'price' => $_POST['new_price'], 'img' => $_POST['new_img'] );
-				file_put_contents("../htdocs/private/passwd", serialize($products));
+			unset($products[$i]);
+			$products[] = array('name' => $_POST['new_name'], 'cat' => $_POST['new_category'], 'price' => $_POST['new_price'], 'img' => $_POST['new_img']);
+			file_put_contents("../htdocs/items/products", serialize($products));
 		}
 		else
 			$erno1 = '<script>alert("All fields are required");</script>';

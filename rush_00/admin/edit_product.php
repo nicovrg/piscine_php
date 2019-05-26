@@ -25,9 +25,11 @@ if ($_POST)
 		}
 		else
 			$erno1 = '<script>alert("All fields are required");</script>';
+			header('Location: admin.php');
 		}
 	else
 		$erno2 = '<script>alert("Product does not exist - Go to add product");</script>';
+		header('Location: admin.php');
 }
 require('../menu/topbar.php');
 ?>

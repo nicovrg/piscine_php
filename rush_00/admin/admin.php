@@ -1,7 +1,5 @@
 <?PHP
 session_start();
-// print $_SESSION['loggued_on_user'];
-// print $_SESSION['admin'];
 if ($_SESSION['loggued_on_user'] && $_SESSION['admin'] == 1)
 {
 	$users = unserialize(file_get_contents("../htdocs/private/passwd"));
@@ -39,19 +37,18 @@ if ($_SESSION['loggued_on_user'] && $_SESSION['admin'] == 1)
         </html>
         <?
 }
-// else if (!$_SESSION['loggued_on_user'] || $_SESSION['admin'] != 1)
-//     print 1 ;
-// ?>
-<!-- //     <!DOCTYPE html>
-//     <html>
-//     <head>
-//         <meta charset="utf-8" />
-//         <link rel="stylesheet" type="text/css" href="../style/topbar.css">
-//         <link rel="stylesheet" type="text/css" href="../style/admin.css">
-//     </head>
-//     <body>
-//     <p>You're not supposed to be here</p>
-//     </body>
-//     </html>
-    
-     -->
+else if (!$_SESSION['loggued_on_user'] || $_SESSION['admin'] != 1)
+{
+    require('../menu/topbar.php');
+    echo ('<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../style/topbar.css">
+        <link rel="stylesheet" type="text/css" href="../style/admin.css">
+    </head>
+    <body>
+    <p>You\'re not supposed to be here</p>
+    </body>
+    </html>');
+}    

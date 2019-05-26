@@ -11,9 +11,11 @@ if ($_POST)
 			file_put_contents("../htdocs/items/products", serialize($products));
 		}
 		$confirm = '<script>alert("Product added");</script>';
+		header('Location: admin.php');
 	}
 	else
 		$erno = '<script>alert("All fields are required");</script>';
+		header('Location: admin.php');
 }
 require('../menu/topbar.php');
 ?>

@@ -34,9 +34,11 @@ if ($_POST)
 			}
 			else
 				$erno1 = '<script>alert("All fields are required");</script>';
+				header('Location: admin.php');
 		}
 		else
 			$erno2 = '<script>alert("User does not exist - Go to add user");</script>';
+			header('Location: admin.php');
 	}
 }
 require('../menu/topbar.php');

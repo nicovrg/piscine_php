@@ -23,6 +23,7 @@ if ($_POST)
 	}
 	else
 		$erno = '<script>alert("All fields are required");</script>';
+	header('Location: admin.php');
 }
 require('../menu/topbar.php');
 ?>

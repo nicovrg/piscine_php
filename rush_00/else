@@ -35,3 +35,52 @@ foreach ($users as $user)
 				// print $user['passwd'];
 				// print "aaaaaaaa";
 				// print hash('sha512', "root");
+
+
+<?php
+session_start();
+if ($_POST)
+{
+	$check = 0;
+	if ($_POST['old_category'] && $_POST['new_category'] && $_POST['submit'] == "OK")
+	{
+		$categories = unserialize(file_get_contents("../htdocs/items/categories"));
+		if ($categories)
+		{
+			$i = 0;
+			foreach ($categories as $category)
+			{
+				print_r ($categories[$i]);
+				if (is_array($categories[$i]) && $categories[$i][0] === $_POST['old_category'])
+					$check = 2;
+				// print "-----";	
+				// print $_POST['old_category'];
+				if ($categories[$i][0] === $_POST['old_category'])
+					$check = 1;
+				if ($check === 0)
+					$i++;
+			}
+		}
+		print $check;
+
+		if ($check === 1)
+		{
+			unset($categories[$i]);
+			$categories[$i][] = $_POST['new_category'];			
+			file_put_contents("../htdocs/items/categories", serialize($categories));
+		}
+		else if ($check === 2)
+		{
+			unset($categories[$i][0]);
+			$categories[$i][0][] = $_POST['new_category'];			
+			file_put_contents("../htdocs/items/categories", serialize($categories));
+		}
+		else
+			$erno1 = '<script>alert("All fields are required");</script>';
+		header('Location: admin.php');
+		}
+	else
+		$erno2 = '<script>alert("Product does not exist - Go to add product");</script>';
+		header('Location: admin.php');
+}
+require('../menu/topbar.php');

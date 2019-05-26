@@ -1,6 +1,7 @@
 <?php
-include("../index.php");
-include ("../op_basket.php");
+//include("../index.php");
+include ("op_basket.php");
+include ("display.php");
 if (file_exists("../htdocs/items/categories"))
 {
 	$categories = file_get_contents("../htdocs/items/categories");
@@ -16,17 +17,47 @@ $products = unserialize($products);
 <head>
     <meta charset="utf-8">
 	<title>Basket</title>
-	<link rel="stylesheet" type="text/css" href="basket.css">
+	<!-- <link rel="stylesheet" type="text/css" href="basket.css"> -->
 </head>
 <table>
 <tr > <td class="basket" style="border-radius:5px; background-color:336666"><b>product</b></td> <td class="basket" style="border-radius:5px; background-color:336666">price</td> <td class="basket" style="border-radius:5px; background-color:336666">total</td><td class="basket" style="border-radius:5px; background-color:336666">quantity/td> <br /></tr>
 </HTML>
 <?php 
 
-if (!$_SESSION['basket'])
-	echo "Your basket is empty !";
+if (!$_SESSION[basket])
+{
+	echo "Let's find the item you dream of to fulfill your basket !";
+	$products = array(
+		array('name' => 'tomatoe', 'cat' => array('fruit', 'vegetable'), 'price' => 2, 'quantity' => 2, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-tomates-de-saison.png'),
+		array('name' => 'apple', 'cat' => array('fruit'), 'price' => 3, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-pomme-royal-gala.png'),
+		array('name' => 'apricot', 'cat' => array('fruit'), 'price' => 4, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
+		array('name' => 'basil', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425122630.jpg'),
+		array('name' => 'bean', 'cat' => array('vegetable'), 'price' => 3, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-haricots-coco.png'),
+		array('name' => 'carrot', 'cat' => array('vegetable'), 'price' => 2, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-carotte.png'),
+		array('name' => 'eggplant', 'cat' => array('vegetable'), 'price' => 3, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-aubergine-noire.png'),
+		array('name' => 'pepper', 'cat' => array('vegetable'), 'price' => 4, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-poivron-rouge.png'),
+		array('name' => 'orange', 'cat' => array('fruit'), 'price' => 4, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/orange-navel.png'),
+		array('name' => 'cep', 'cat' => array('others'), 'price' => 9, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-cepe.png'),
+		array('name' => 'mushroom', 'cat' => array('others'), 'price' => 7, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425124751.jpg'),
+		array('name' => 'girole', 'cat' => array('others'), 'price' => 9, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/champignon-girolle.png'),
+		array('name' => 'parsley', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/persil-frise.png'),
+		array('name' => 'artichoke', 'cat' => array('vegetables'), 'price' => 4, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-artichaut.png'),
+		array('name' => 'cherry', 'cat' => array('fruit'), 'price' => 6, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20170606155720.jpg'),
+		array('name' => 'raspberry', 'cat' => array('fruit'), 'price' => 8, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20180425182028.jpg'),
+		array('name' => 'mint', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/grand-frais-menthe.png'),
+		array('name' => 'coriander', 'cat' => array('aromate'), 'price' => 20, 'quantity' => 0, 'img' => 'https://www.grandfrais.com/userfiles/image/produit/big/gfp-20140505083435.jpg')
+	);
+	{
+		foreach($products as $key => $row)
+		{
+			echo "-<b>".$row["name"]."</b> :<br><br>";
+			echo "<div><img src =".$row["img"]." width=100px height=100px></div>";
+			echo "<i>Prix :".$row["prix"]."€</i><br><br>";
+		}
+	}
+}
 
-if ($_SESSION[basket] && $_GET[value] !== "empty" && $_GET[command] !== "ok")
+if ($_SESSION[basket] && $_POST[value] !== "empty" && $_POST[command] !== "ok")
 {
 	foreach ($_SESSION[basket] as $key => $elem)
 	{	
@@ -40,7 +71,7 @@ if ($_SESSION[basket] && $_GET[value] !== "empty" && $_GET[command] !== "ok")
 	if (!$_SESSION['loggued_on_user'])
 		echo "<div>Please, connect on your account before to valid your order.</div>";
 	else {
-	echo "<img src=\"./imagesdebase/Tic.png\" width=25px style=\"position:relative; top:7px; margin-right:10px\"> Valid your order: 
+	echo "<img src=\"http://www.primheure.ch/new/images/stories/virtuemart/product/Fruits.jpg\" width=25px style=\"position:relative; top:7px; margin-right:10px\"> Valid your order: 
 	<form style=\"font-size:20px\" method=\"post\"action=\"basket.php?value=validate&command=ok\">
 	<input type=\"submit\" name=\"validate\" value=\"validate\"/>
 	</form>";}
@@ -50,12 +81,13 @@ if ($_SESSION[basket] && $_GET[value] !== "empty" && $_GET[command] !== "ok")
 	</form>";
 
 }
-if($_GET[value] === "empty")
+
+if($_POST[value] === "empty")
 {
 	unset($_SESSION[basket]);
 	echo "Your basket is empty !";
 }
-	if($_GET[value] === "validate" && $_SESSION[basket])
+	if($_POST[value] === "validate" && $_SESSION[basket])
 	{
 		if ($_SESSION['loggued_on_user'])
 		{

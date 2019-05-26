@@ -1,6 +1,6 @@
 <?php
 session_start();
-function add_item($name,$quantity,$price)
+function add($name,$quantity,$price)
 {
 	$select = array(name => $name, quantity => $quantity, price => ($quantity*$price));
 	if (isset($_SESSION[basket]))
@@ -9,7 +9,7 @@ function add_item($name,$quantity,$price)
 	{	
 		if ($elem[name] === $name)
 		{
-			$_SESSION[basket][$key][quantity] = $elem[quantity] + $quantity;
+			$_SESSION[basket][$key][quantity] = $elem[quantity] + $recap_nb;
 			$_SESSION[basket][$key][price] = $elem[price] + ($quantity*$price);
 			return;
 		}	
@@ -22,6 +22,5 @@ function add_item($name,$quantity,$price)
 	  return;
    }
    echo "Error> > op_basket";
-	
 }
 ?>

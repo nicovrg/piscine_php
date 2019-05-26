@@ -1,4 +1,4 @@
-$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha256', $_POST['passwd']), 'admin' => true);
+$users[] = array('login' => $_POST['login'], 'passwd' => hash('sha512', $_POST['passwd']), 'admin' => true);
 foreach ($users as $user)
 {
 	if ($user['admin'] == true)
@@ -15,3 +15,23 @@ foreach ($users as $user)
 				}
 			}
 		}
+
+						print 0;
+				print $login;
+				print 1;
+				print $user['admin'];
+				print 2;
+				print $_SESSION['admin'];
+				print 33333333333;
+				print $user['passwd'];
+				print 44444444444;
+				print hash('sha512', $passwd);
+
+
+
+				// print $user['login'];
+				// print "aaaaaaaa";
+				// print $login;
+				// print $user['passwd'];
+				// print "aaaaaaaa";
+				// print hash('sha512', "root");

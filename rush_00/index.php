@@ -10,5 +10,6 @@ require('menu/topbar.php');
 	<link rel="stylesheet" type="text/css" href="style/topbar.css">
 </head>
 <body>
+<p>Sign in (index.php)</p>
 </body>
 </html>

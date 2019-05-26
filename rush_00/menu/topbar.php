@@ -3,6 +3,7 @@
 ?>
 <div class="topbar">
   <?php
+    print $_SESSION["loggued_on_user"];
     if (!isset($_SESSION["loggued_on_user"]))
       echo '<a href="../login/login.php">Sign in</a>
             <a href="../login/create_account.php">Create account</a>';

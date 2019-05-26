@@ -26,7 +26,10 @@ if ($_POST)
 			exit();
 		}
 		if ($ret === -1)
+		{
+			header('Location: ../index.php');
 			$erno = '<script>alert("All fields are required");</script>';
+		}
 	}
 }
 require('../menu/topbar.php');

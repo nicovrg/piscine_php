@@ -46,7 +46,6 @@ if ($_POST)
 		file_put_contents("htdocs/private/passwd", serialize($users));
 		file_put_contents("htdocs/items/categories", serialize($categories));
 		file_put_contents("htdocs/items/products", serialize($products));
-		file_put_contents("htdocs/items/orders", serialize($products));
 		echo ("OK\n");
 		exit();
 	}

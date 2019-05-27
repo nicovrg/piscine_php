@@ -34,8 +34,8 @@
 				<?=$value["name"]?>
 				<?=$value["price"]." € / kg"?>
 				<!-- echo "<i>Price: ".$row["price"]." € / kg</i><br><br>"; -->
-				<form action="basket/add_basket.php" method="POST">
-				<input type="hidden" name="name" value="$product['name']"/>
+				<form action="../basket/add_basket.php" method="POST">
+				<input type="hidden" name="name" value="tom"/>
 				<input type="submit" value="add to cart">
 				</form>
 				<img src = <?=$value["img"]?>>

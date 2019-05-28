@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php 
 
 Class Color 
@@ -10,12 +11,13 @@ Class Color
     
     function __construct ($array)
     {
-        print ("constructor called");
-        if (array_key_exists($array['rgb']) == true)
+        if ($verbose == true)
+            print ("constructor called");
+        if (array_key_exists($array['rgb'], $array) == true)
         {
             (int)$array['rgb'];
         }
-        else if (array_key_exists($array['red']) == true && array_key_exists($array['green']) == true && array_key_exists($array['blue']) == true)
+        else if (array_key_exists($array['red'], $array) == true && array_key_exists($array['green'], $array) == true && array_key_exists($array['blue'], $array) == true)
         {
             (int)$array['red'];
             (int)$array['green'];
@@ -23,21 +25,40 @@ Class Color
         }
         else
         {
-            print ("Error\n");
+            if ($verbose == true)
+                print ("Error\n");
             return (0);
         }
-        return ;
+        return (1);
     }
 
     function __destruct ()
     {
-        print ("destructor called");
-        return ;
+        if ($verbose == true)
+            print ("destructor called");
+        return (1);
     }
 
     function __toString ()
     {
+        return $this->verbose;
     }
+
+    function add ()
+    {
+        
+    }
+    
+    function sub ()
+    {
+    
+    }
+    
+    function mult ()
+    {
+    
+    }
+    
 
     static function doc ()
     {
@@ -46,5 +67,12 @@ Class Color
         echo "$contenu";
     }
 }
+
+Color::$verbose = True;
+
+$red = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0    ) );
+print( $red     . PHP_EOL );
+
+
 
 ?>

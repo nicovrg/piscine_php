@@ -57,3 +57,39 @@ curl -b cook.txt 'localhost:8100/ex03/whoami.php'
 
 j04/ex04
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print "val = $val"."\n";
+print "array[red] = ".$array_rgb['red']."\n";
+print "array[green] = ".$array_rgb['green']."\n";
+print "array[blue] = ".$array_rgb['blue']."\n"
+
+else if (strlen($hex) == 3)
+{
+	$array_rgb['red'] = base_convert(str_repeat(substr($val, 0, 1), 2), 16, 10);
+	$array_rgb['green'] = base_convert(str_repeat(substr($val, 0, 1), 2), 16, 10);
+	$array_rgb['blue'] = base_convert(str_repeat(substr($val, 0, 1), 2), 16, 10);
+}
+
+take input, put it in base 16
+check size (0 to 6 cause ff ff ff is 255 255 255 or 1111 1111 1111 1111 1111 1111)
+
+while input lenght in base 16 is less than 6 put some 0 before it so it'll match size 6 when we add the base 16 val
+then add the base 16val
+
+if we have 6 in lenght, we are good so we convert back to base 10 and we do some bitshifts
+red is 255 & val shift by 2 bits and green is 255 & val shift by 1 bits and blue is just 255 & val

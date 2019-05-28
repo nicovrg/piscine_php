@@ -6,30 +6,25 @@ Class Color
 	public $red = 0;
 	public $green = 0;
 	public $blue = 0;
-	private $array;
+	public $rgb = 0;
 	public static $verbose = false;
-		
+	
 	function __construct ($array)
 	{
 		if ($verbose == true)
 			print ("constructor called");
 		if (array_key_exists($array['rgb'], $array) == true)
 		{
-			(int)$array['rgb'];
+			$this->rgb = (int)$array['rgb'];
 		}
 		else if (array_key_exists($array['red'], $array) == true && array_key_exists($array['green'], $array) == true && array_key_exists($array['blue'], $array) == true)
 		{
-			(int)$array['red'];
-			(int)$array['green'];
-			(int)$array['blue'];
+			$this->red = (int)$array['red'];
+			$this->green = (int)$array['green'];
+			$this->blue = (int)$array['blue'];
 		}
-		else
-		{
-			if ($verbose == true)
-				print ("Error\n");
-			return (0);
-		}
-		return (1);
+		else if ($verbose == true)
+			print ("Error\n");
 	}
 
 	function __destruct ()
@@ -46,10 +41,30 @@ Class Color
 
 	function convert ($input)
 	{
+		$hex = null;
 		$index = 0;
-		$to_ten = (int)$input;
-		$to_ten = base_convert($input, 16, 10);
+		$to_ten = base_convert((int)$input, 10, 16);
+		$size = 6 - strlen($to_ten);
+		while ($index < $size)
+		{
+			$hex = $hex."0";
+			$index++;
+		}
+		$hex = $hex.$to_ten;
+		$array_rgb = array();
+		print $hex;
+		if (strlen($hex) == 6)
+		{
+			$val = base_convert($hex, 16, 10);
+			$array_rgb['red'] = 255 & ($val >> 16);
+			$array_rgb['green'] = 255 & ($val >> 8);
+			$array_rgb['blue'] = 255 & $val;
+		}
+		else
+			return (-1);
+		return ($array_rgb);
 	}
+
 
 	function add ()
 	{
@@ -71,15 +86,16 @@ Class Color
 	{
 		$file = 'Color.doc.txt';
 		$contenu = file_get_contents($file);
-		echo "$contenu";
+		echo ($contenu."\n");
 	}
 }
 
-Color::$verbose = True;
-
-$red = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0	) );
+Color::$verbose = true;
+// print( Color::doc() );
+// print_r( Color::convert(65535) );
+Color::convert(3);
+// $red = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0	) );
 print( $red	 . PHP_EOL );
-
 
 
 ?>

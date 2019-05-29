@@ -1,0 +1,18 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles coordinates.
+
+An instance can be contructed from 5 args:
+int x, int y, int z, int w, class color 
+
+The class provides the following methods :
+
+Color   add( Color $rhs );
+Adds each color constitutive and returns a new Color instance.
+
+Color   sub( Color $rhs );
+Substracts each color constitutive and returns a new Color instance.
+
+Color   mult( $f );
+Multiplies each color constitutive by factor $f and returns a new Color
+instance.
+---------------------------------------------------------------------- Vertex ->

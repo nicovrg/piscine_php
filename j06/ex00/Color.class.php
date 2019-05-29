@@ -1,5 +1,4 @@
- <?php
-
+<?php
 Class Color 
 {
 	public $red = 0;

@@ -1,5 +1,4 @@
 <?php
-
 Class Color 
 {
 	public $red = 0;
@@ -18,38 +17,14 @@ Class Color
 			return ($color);
 	}
 
-	public function convert ($input)
-	{
-		$hex = null;
-		$index = 0;
-		$to_ten = base_convert((int)$input, 10, 16);
-		$size = 6 - strlen($to_ten);
-		while ($index < $size)
-		{
-			$hex = $hex."0";
-			$index++;
-		}
-		$hex = $hex.$to_ten;
-		$array_rgb = array();
-		if (strlen($hex) == 6)
-		{
-			$val = base_convert($hex, 16, 10);
-			$array_rgb['red'] = 255 & ($val >> 16);
-			$array_rgb['green'] = 255 & ($val >> 8);
-			$array_rgb['blue'] = 255 & $val;
-		}
-		return ($array_rgb);
-	}
-
 	public function __construct ($array)
 	{
 		$check = 0;
 		if (array_key_exists('rgb', $array) == true)
-		{		
-			$array_rgb = $this->convert($array['rgb']);
-			$this->red = $array_rgb['red'];
-			$this->green = $array_rgb['green'];
-			$this->blue = $array_rgb['blue'];
+		{
+			$this->red = intval($array['rgb'] >> 16 & 0xFF);
+            $this->green = intval($array['rgb'] >> 8 & 0xFF);
+            $this->blue = intval($array['rgb'] >> 0 & 0xFF);
 			$check++;
 		}
 		else if (array_key_exists('red', $array) == true && array_key_exists('green', $array) == true && array_key_exists('blue', $array) == true)
@@ -63,21 +38,20 @@ Class Color
 		$this->green = $this->check_limits($this->green);
 		$this->blue = $this->check_limits($this->blue);
 		if (self::$verbose == true && $check === 0)
-			$error = "Error\n";
+			printf("error\n");
 		else if (self::$verbose == true)
-			$success = "Color( red: ".printf("%3s",$this->red).", green: ".printf("%3s",$this->green).", blue: ".printf("%3s", $this->blue)." ) constructed.".PHP_EOL;
+			printf("Color( red: %3d, green: %3d, blue: %3d ) constructed.\n", $this->red, $this->green, $this->blue);
 	}
 
 	public function __destruct ()
 	{
 		if (self::$verbose == true)
-			$success = "Color( red: ".printf("%3s",$this->red).", green: ".printf("%3s",$this->green).", blue: ".printf("%3s", $this->blue)." ) destructed.".PHP_EOL;
-		return (1);
+			printf("Color( red: %3d, green: %3d, blue: %3d ) destructed.\n", $this->red, $this->green, $this->blue);
 	}
 
 	public function __toString ()
 	{
-		return ($this->success);
+		return (sprintf("Color( red: %3d, green: %3d, blue: %3d )", $this->red, $this->green, $this->blue));
 	}
 
 	public function doc ()
@@ -86,28 +60,28 @@ Class Color
 		$contenu = file_get_contents($file);
 		echo ($contenu."\n");
 	}
-
-	public function add ($color)
+	
+	public function add (Color $color)
 	{
 		$red = $this->red + $color->red;
 		$green = $this->green + $color->green;
-		$bleu = $this->blue + $color->blue; 
+		$blue = $this->blue + $color->blue; 
 		return (new Color(array('red' => $red, 'green' => $green, 'blue' => $blue)));
 	}
-		
-	public function sub ($color)
+
+	public function sub (Color $color)
 	{
 		$red = $this->red - $color->red;
 		$green = $this->green - $color->green;
-		$bleu = $this->blue - $color->blue; 
+		$blue = $this->blue - $color->blue; 
 		return (new Color(array('red' => $red, 'green' => $green, 'blue' => $blue)));
 	}
 
 	public function mult ($color)
 	{
-		$red = $this->red * $color->red;
-		$green = $this->green * $color->green;
-		$bleu = $this->blue * $color->blue; 
+		$red = $this->red * $color;
+		$green = $this->green * $color;
+		$blue = $this->blue * $color; 
 		return (new Color(array('red' => $red, 'green' => $green, 'blue' => $blue)));
 	}
 }

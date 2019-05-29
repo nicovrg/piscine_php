@@ -1,13 +1,12 @@
 <?php
-
 require_once('Color.class.php');
 
 Class Vertex
 {
-	private $_x;
-	private $_y;
-	private $_z;
-	private $_w;
+	private $_x = 0.00;
+	private $_y = 0.00;
+	private $_z = 0.00;
+	private $_w = 1.00;
 	private $_color;
 	public static $verbose = false;
 
@@ -15,39 +14,39 @@ Class Vertex
 	{
 		if (!isset($array))
 		{
-			$this->_x = $this->set_x(0);
-			$this->_y = $this->set_y(0);
-			$this->_z = $this->set_z(0);
-			$this->_w = $this->set_w(1);
-			$this->_color = $this->set_color(new Color(array( 'red' => 255, 'green' => 255, 'blue' => 255 )));
+			$this->_x = 0;
+			$this->_y = 0;
+			$this->_z = 0;
+			$this->_w = 1.00;
+			$this->_color = new Color(array( 'red' => 255, 'green' => 255, 'blue' => 255 ));
 		}
-		else if (isset($array['x']) && isset($array['y']) && isset($array['z']))
+		if (isset($array['x']) && isset($array['y']) && isset($array['z']))
 		{
 			$this->_x = $array['x'];
 			$this->_y = $array['y'];
 			$this->_z = $array['z'];
-			if (isset($array[$w]))
+			if (isset($array['w']))
 				$this->_w = $array['w'];
 			if (isset($array['color']))
 				$this->_color = $array['color'];
+			else
+				$this->_color = new Color(array( 'red' => 255, 'green' => 255, 'blue' => 255 ));
 		}
 		if (self::$verbose == true)
-			$success = "Color( red: ".printf("%3s",$this->red).", green: ".printf("%3s",$this->green).", blue: ".printf("%3s", $this->blue)." ) constructed.".PHP_EOL;
+			printf("Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f, Color( red: %3d, green: %3d, blue: %3d ) ) constructed)\n", $this->_x, $this->_y, $this->_z, $this->_w, $this->_color->red, $this->_color->green, $this->_color->blue);
 	}
 
 	function __destruct ()
 	{
-
+		if (self::$verbose == true)
+			printf("Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f, Color( red: %3d, green: %3d, blue: %3d ) ) destructed)\n", $this->_x, $this->_y, $this->_z, $this->_w, $this->_color->red, $this->_color->green, $this->_color->blue);
 	}
 
 	function __toString ()
 	{
-
-	}
-
-	public function __get($obj)
-	{
-		return ($this->$obj);
+		if (self::$verbose == true)
+			return (sprintf("Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f, Color( red: %3d, green: %3d, blue: %3d ) )", $this->_x, $this->_y, $this->_z, $this->_w, $this->_color->red, $this->_color->green, $this->_color->blue));
+		return (sprintf("Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f )", $this->_x, $this->_y, $this->_z, $this->_w));
 	}
 	
 	public function get_x()

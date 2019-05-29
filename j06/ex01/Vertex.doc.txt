@@ -6,13 +6,10 @@ int x, int y, int z, int w, class color
 
 The class provides the following methods :
 
-Color   add( Color $rhs );
-Adds each color constitutive and returns a new Color instance.
+get_data (data being either x, y, z, w or color);
+get the value from the object
 
-Color   sub( Color $rhs );
-Substracts each color constitutive and returns a new Color instance.
+set_data (data being either x, y, z, w or color);
+set the value from the object
 
-Color   mult( $f );
-Multiplies each color constitutive by factor $f and returns a new Color
-instance.
 ---------------------------------------------------------------------- Vertex ->

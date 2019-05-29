@@ -13,7 +13,7 @@ Class Vertex
 
 	function __construct ($array)
 	{
-		if (!$array)
+		if (!isset($array))
 		{
 			$this->_x = $this->set_x(0);
 			$this->_y = $this->set_y(0);

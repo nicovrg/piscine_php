@@ -1,9 +1,14 @@
 <?php
-class Fighter{
+abstract class Fighter
+{
+	public $type;
 
-	public function __construct()
+	abstract function fight($target);
+
+	public function __construct($soldier)
 	{
-
+		$this->type = $soldier;
 	}
 }
+//fight recoit une instance
 ?>

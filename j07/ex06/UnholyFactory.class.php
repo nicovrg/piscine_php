@@ -1,24 +1,35 @@
 <?php
-Class UnholyFactory{
+class UnholyFactory
+{
+	private $array;
 	
-	static $array;
-
-	public function absorb($str)
+	function absorb($solier)
 	{
-		if (get_parent_class($str) != "Fighter")
-			print "(Factory can't absorb this, it's not a fighter)\n";
-		
-		else
+		if (!$this->array || !$this->array == null || !in_array($solier, $this->array))
 		{
-			if ($array)
-				print "(Factory absorbed a fighter of type " . strtolower(get_class($str)) . ")\n";
-            else
-                return ;
+			if (get_parent_class($solier) === "Fighter")
+			{
+				$this->array[] = $solier;
+				print("(Factory absorbed a fighter of type ".$solier->type.")".PHP_EOL);
+			}
+			else
+				print("(Factory can't absorb this, it's not a fighter)".PHP_EOL);
 		}
+		else
+			print("(Factory already absorbed a fighter of type".$solier->type.")".PHP_EOL);
 	}
-	public function fabricate($str)
+
+	function fabricate($soldier)
 	{
-		
+		foreach ($this->array as $key => $solier)
+		{
+			if ($solier->type === $soldier)
+			{
+				print("(Factory fabricates a fighter of type ".$soldier.")".PHP_EOL);
+				return $this->array[$key];
+			}
+		}
+		print("(Factory hasn't absorbed any fighter of type ".$soldier.")".PHP_EOL);
 	}
 }
 ?>

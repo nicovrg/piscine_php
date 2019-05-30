@@ -4,9 +4,9 @@ class	Tyrion
 {
 	public function	sleepWith($who)
 	{
-		if (is_a($who, "Jaime") || is_a($who, "Cersei") )
+		if ($who instanceof Jaime || $who instanceof Cersei)
 			print("Not even if I'm drunk !" . "\n");
-		else if (is_a($who, "Sansa"))
+		else if ($who instanceof Sansa)
 			print("Let's do this." . "\n");
 	}
 }

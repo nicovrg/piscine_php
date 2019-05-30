@@ -4,11 +4,11 @@ class	Jaime
 {
 	public function	sleepWith($who)
 	{
-		if (is_a($who, "Tyrion"))
+		if ($who instanceof Tyrion)
 			print("Not even if I'm drunk !" . "\n");
-		else if (is_a($who, "Sansa"))
+		else if ($who instanceof Sansa)
 			print("Let's do this." . "\n");
-		else if (is_a($who, "Cersei"))
+		else if ($who instanceof Cersei)
 			print("With pleasure, but only in a tower in Winterfell, then." . "\n");
 	}
 }

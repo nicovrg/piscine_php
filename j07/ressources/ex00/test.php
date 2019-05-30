@@ -12,7 +12,7 @@ class Lannister {
 	}
 }
 
-include('Tyrion.class.php');
+include('/Users/nivergne/42_Nico/42_gitlab/ongoing/piscine_php/j07/ex00/Tyrion.class.php');
 
 $tyrion = new Tyrion();
 

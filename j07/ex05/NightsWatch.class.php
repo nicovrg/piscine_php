@@ -1,5 +1,4 @@
 <?PHP
-
 class NightsWatch implements IFighter
 {
 	public function recruit($fighter)
@@ -7,10 +6,8 @@ class NightsWatch implements IFighter
 		if (method_exists($fighter, 'fight'))
 			$fighter->fight() . "\n";
 	}
-
 	public function fight() 
 	{
 	}
 }
-
 ?>

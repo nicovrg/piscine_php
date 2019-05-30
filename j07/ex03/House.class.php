@@ -1,5 +1,4 @@
 <?php
-
 class House
 {
 	public function introduce ()
@@ -7,9 +6,7 @@ class House
 		$name = $this->getHouseName();
 		$motto = $this->getHouseMotto();
 		$seat = $this->getHouseSeat();
-		print ("House $name of $seat : $motto\n");
+		print ("House $name of $seat : $motto".PHP_EOL);
 	}
 }
-
 ?>
-

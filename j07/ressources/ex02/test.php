@@ -1,8 +1,9 @@
 <?php
 
-include('../../ex02/Targaryen.class.php');
+include('/Users/nivergne/42_Nico/42_gitlab/ongoing/piscine_php/j07/ex02/Targaryen.class.php');
 
-class Viserys extends Targaryen {
+class Viserys extends Targaryen 
+{
 }
 
 class Daenerys extends Targaryen {

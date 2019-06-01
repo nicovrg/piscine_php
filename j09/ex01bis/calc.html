@@ -1,19 +1,11 @@
 <!doctype html>
 <html lang="fr">
     <head>
-        <meta charset="utf-8">
         <title>calc</title>
-        <style>
-        #calc
-        {
-			margin-top : 21%;
-            margin-left: auto;
-			margin-right: auto;
-            width: 200px;
-			height: 200px;
-        }
-        </style>
+        <meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
+            $(document).ready(() => {
             setInterval(function(){alert("please, use me...");}, 30000);
             function add (first, second)
             {
@@ -57,11 +49,13 @@
                 alert(res);
                 console.log(res);
             }
-            function calc ()
-            {
-                var first = parseInt(document.getElementById("first").value);
-                var operand = document.getElementById("operand").value;
-                var second = parseInt(document.getElementById("second").value);
+            $('input[type=submit]').click(() => {
+                var first = parseInt($('#first').val());
+                var operand = $('#operand').val();
+                var second = parseInt($('#second').val());
+                console.log(first);
+                console.log(operand);
+                console.log(second);
                 if (first >= 0 && second >= 0)
                 {
                     if (operand == "+")
@@ -79,11 +73,12 @@
                 {
                     alert("Error:(");
                 }
-            }
+            })
+		});
         </script>        
     </head>
     <body>
-          <div id="calc">
+          <div id="calc" style="margin-top : 21%; margin-left: auto; margin-right: auto; width: 200px; height: 200px;">
                 <input type="text" id="first">
                 <select name="" id="operand">
                     <option value="+">+</option>
@@ -93,7 +88,7 @@
                     <option value="%">%</option>
                 </select>
                 <input type="text" id="second">
-                <input type="submit" value="Try me!" onclick='calc();'>
+                <input type="submit" value="Try me!">
           </div>
     </body>
 </html>

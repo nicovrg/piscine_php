@@ -1,5 +1,5 @@
 <?php
-    if ($_GET === null || $_GET['name' === null])
+    if ($_GET === null || $_GET['name'] === null)
         return (0);
     else if ($_GET['action'] === "set" && $_GET['value'] !== null)
         setcookie ($_GET['name'], $_GET['value'], time() + 3600 * 24 * 365, null, null, false, true);

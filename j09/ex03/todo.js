@@ -9,7 +9,7 @@ $(document).ready(() => {
 		var todo_content = prompt("be you, be ff ---> proud of you ... bearray_cookieuse you can be ... do ... what we want ... to do");
 		if (todo_content)
 		{
-			array_cookie.push(todo_content);
+			//AJAX
 			updateCookie();
 			print_cookie();
 		}
@@ -41,16 +41,15 @@ $(document).ready(() => {
 		}
 	}
 
-	function updateCookie() 
-	{
-		var date = new Date();
-		date.setTime(date.getTime() + 60000);
-		var expires = "expires=" + date.toUTCString();
-		document.cookie = `todo=${JSON.stringify(array_cookie)};${expires};path=/`;
-	}
-
 	function get_cookie() 
 	{
+		$('#button').click(function(){
+			$.get('select.php', function(data, status) {
+
+			})
+		});
+
+
 		var i = 0;
 		var decode_cookie = decodeURIComponent(document.cookie);
 		var array_cookie = decode_cookie.split(';');

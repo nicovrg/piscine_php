@@ -2,29 +2,50 @@
 <html>
 	<head>
 		<title>balloon</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(() => {
 				var size = 200;
-				var color = ['red', 'green', 'blue'];
-				$('ballon').css('width', size);
-				$('ballon').css('height', size);
-				$('ballon').css('background-color', color[0]);
+				$('#ballon').css({"width":"200px"});
+				$('#ballon').css({"height":"200px"});
+				$('#ballon').css({"background-color":"red"});
 				
+				var i = 0;
+				var size = 200;
+				var color = ['red', 'green', 'blue'];
+
 				$('#ballon').click(() => {
-					$('ballon').css('width', size);
-					$('ballon').css('height', size);
-					$('ballon').css('background-color', color[1]);
-					if ($('ballon').css('width', size) != 200)
-					{
-						$('ballon').css('height', size - 5);
-						$('ballon').css('width', size - 5);
-					}
+					if (i < 2)
+						i++;
+					else
+						i = 0;
+					if (size == 415)
+						size = 200;
+					else if(size < 420)
+						size = size + 10;
+					else
+						size = 200;
+					$('#ballon').width(size);
+					$('#ballon').height(size);
+					$('#ballon').css({"background-color":color[i]});
+				});
+			
+				$('#ballon').mouseleave(() => {
+					if (size > 200)
+						size = size - 5;
+					if (i > 0)
+						i--;
+					else
+						i = 2;
+					$('#ballon').height(size);
+					$('#ballon').width(size);
+					$('#ballon').css({"background-color":color[i]});
 				});
 			});
 		</script>
 	</head>
 	<body>
-		<div id="ballon" style="border-radius: 50%;	margin-top : 21%; margin-left: auto; margin-right: auto; background-color: red; width:20px; height:20px;"></div>
+		<div id="ballon" style="border-radius: 50%;	margin-top : 21%; margin-left: auto; margin-right: auto;"></div>
 	</body>
 </html>

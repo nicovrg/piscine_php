@@ -6,7 +6,7 @@ $(document).ready(() => {
 	
 	$("#button").click(event => {
 		event.preventDefault();
-		var todo_content = prompt("be you, be ff ---> proud of you ... bearray_cookieuse you can be ... do ... what we want ... to do");
+		var todo_content = prompt("be you, be ff ---> proud of you ... because you can be ... do ... what we want ... to do");
 		if (todo_content)
 		{
 			array_cookie.push(todo_content);

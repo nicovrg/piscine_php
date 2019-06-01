@@ -30,15 +30,17 @@ window.onload = () =>
 
 	function print_cookie ()
 	{
+		var i = 0;
 		array_cookie = get_cookie();
 		todo_list.innerHTML = '';
-		for (index in array_cookie)
+		while (i < array_cookie.length)
 		{
 			var todo = document.createElement("div");
-			var todo_text = document.createTextNode(array_cookie[index]);
-			todo.id = index;
+			var todo_text = document.createTextNode(array_cookie[i]);
+			todo.id = i;
 			todo.appendChild(todo_text);
 			todo_list.insertBefore(todo, todo_list.firstChild);
+			i++;
 		}
 	}
 

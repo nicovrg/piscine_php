@@ -2,62 +2,29 @@
 <html>
 	<head>
 		<title>balloon</title>
-		<style>
-		#ballon
-        {
-			background-color: red;
-			border-radius: 50%;
-			width: 200px;
-			height: 200px;
-			margin-top : 21%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-	    </style>
-	    <script>
-		function ft_maigrit()
-		{
-		    var el = document.getElementById("ballon");
-		    style = window.getComputedStyle(el);
-		    var wid = style.getPropertyValue('width');
-		    var color = style.getPropertyValue('background-color');
-		    wid = parseInt(wid);
-		    if (wid != 200)
-		    	wid -= 5;
-		    el.style.width = wid + "px";
-		    el.style.height = wid + "px";
-		    if (color == "rgb(0, 128, 0)")
-		    	el.style.backgroundColor = "red";
-		    if (color == "rgb(0, 0, 255)")
-		    	el.style.backgroundColor = "green";
-		    if (color == "rgb(255, 0, 0)")
-		    	el.style.backgroundColor = "blue";
-		}
-		function ft_grossis()
-		{
-			var elmt = document.getElementById("ballon");
-			style = window.getComputedStyle(elmt);
-			var color = style.getPropertyValue('background-color');
-			var i = style.getPropertyValue('width');
-			i = parseInt(i);
-			if (i == 415)
-				i = 200;
-			else if(i < 420)
-				i += 10;
-			else
-				i = 200;
-			elmt.style.width = i + "px";
-			elmt.style.height = i + "px";
-			if (color == "rgb(0, 128, 0)")
-				elmt.style.backgroundColor = "blue";
-			if (color == "rgb(0, 0, 255)")
-				elmt.style.backgroundColor = "red";
-			if (color == "rgb(255, 0, 0)")
-				elmt.style.backgroundColor = "green";
-		}
-	    </script>
-    </head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<script>
+			$(document).ready(() => {
+				var size = 200;
+				var color = ['red', 'green', 'blue'];
+				$('ballon').css('width', size);
+				$('ballon').css('height', size);
+				$('ballon').css('background-color', color[0]);
+				
+				$('#ballon').click(() => {
+					$('ballon').css('width', size);
+					$('ballon').css('height', size);
+					$('ballon').css('background-color', color[1]);
+					if ($('ballon').css('width', size) != 200)
+					{
+						$('ballon').css('height', size - 5);
+						$('ballon').css('width', size - 5);
+					}
+				});
+			});
+		</script>
+	</head>
 	<body>
-		<div id="ballon" onclick="ft_grossis();" onmouseleave="ft_maigrit()"></div>
+		<div id="ballon" style="border-radius: 50%;	margin-top : 21%; margin-left: auto; margin-right: auto; background-color: red; width:20px; height:20px;"></div>
 	</body>
 </html>
